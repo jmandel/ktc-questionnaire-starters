@@ -1,6 +1,9 @@
 {
   "resourceType": "Questionnaire",
   "id": "esas-r",
+  "meta": {
+    "source": "https://fhir.loinc.org/Questionnaire/112503-8"
+  },
   "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
   "version": "1.0.0",
   "name": "ESAS_r",
@@ -9,6 +12,9 @@
   "experimental": true,
   "date": "2026-06-09",
   "publisher": "Kill the Clipboard \u2014 starter set",
+  "derivedFrom": [
+    "http://loinc.org/q/112503-8"
+  ],
   "subjectType": [
     "Patient"
   ],
@@ -19,7 +25,7 @@
       "display": "Edmonton Symptom Assessment System [Edmonton Symptom Assessment System]"
     }
   ],
-  "copyright": "ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
+  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
   "item": [
     {
       "linkId": "lead",

@@ -34,6 +34,16 @@ These are a **capability demonstration set, not a closed catalog**. The general 
 Questionnaire, collect a Response, preserve provenance, extract Observations, route follow-up — applies
 to any appropriately licensed or locally authored instrument.
 
+### On canonical URLs
+
+The LOINC panel code in `Questionnaire.code` is the real interoperability anchor — it's what a receiving
+system matches on, regardless of who rendered the form. LOINC also publishes official FHIR Questionnaires
+for these panels at [`fhir.loinc.org`](https://fhir.loinc.org/Questionnaire/) with the canonical
+`http://loinc.org/q/<panel>`. Because our resources are our own rendering (LOINC-code `linkId`s plus an
+`ordinalValue` scoring extension, which LOINC's published form does not carry), they keep their own `url`
+but cite LOINC's official form via `derivedFrom` and `meta.source`. We don't reuse LOINC's canonical
+`url`, which would falsely assert these *are* LOINC's resource (its `linkId`s and item set differ).
+
 ## What's in here
 
 ```
@@ -51,7 +61,7 @@ fhir/
 ## The FHIR pattern
 
 1. **`Questionnaire`** — canonical URL, LOINC panel code, item codes, answer options with
-   `ordinalValue` scores, version, `copyright`.
+   `ordinalValue` scores, version, `copyright`, and `derivedFrom` the official LOINC form.
 2. **`QuestionnaireResponse`** — answers by `linkId`, `source`/author, `authored` timestamp, link back
    to the Questionnaire. The raw provenance record.
 3. **`Observation`** — `category = survey`, LOINC score code, `valueQuantity` in `{score}`,

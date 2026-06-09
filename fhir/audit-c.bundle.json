@@ -8,6 +8,9 @@
       "resource": {
         "resourceType": "Questionnaire",
         "id": "audit-c",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/72109-2"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
         "version": "1.0.0",
         "name": "AUDIT_C",
@@ -16,6 +19,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/72109-2"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -26,7 +32,7 @@
             "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
           }
         ],
-        "copyright": "The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
         "item": [
           {
             "linkId": "68518-0",

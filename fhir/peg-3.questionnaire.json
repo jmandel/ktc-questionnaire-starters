@@ -1,6 +1,9 @@
 {
   "resourceType": "Questionnaire",
   "id": "peg-3",
+  "meta": {
+    "source": "https://fhir.loinc.org/Questionnaire/91148-7"
+  },
   "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
   "version": "1.0.0",
   "name": "PEG_3",
@@ -9,6 +12,9 @@
   "experimental": true,
   "date": "2026-06-09",
   "publisher": "Kill the Clipboard \u2014 starter set",
+  "derivedFrom": [
+    "http://loinc.org/q/91148-7"
+  ],
   "subjectType": [
     "Patient"
   ],
@@ -19,7 +25,7 @@
       "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
     }
   ],
-  "copyright": "The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
+  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
   "item": [
     {
       "linkId": "lead",

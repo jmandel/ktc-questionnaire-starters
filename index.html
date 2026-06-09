@@ -198,6 +198,7 @@ th{background:var(--surface-2);font-weight:700;color:var(--ink);position:sticky;
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:var(--surface-2)}
 td.code,th.code{font-family:'JetBrains Mono',monospace;white-space:nowrap}
+td.itemcodes{white-space:normal;font-size:.82rem;min-width:240px}
 td .sc{font-weight:700;color:var(--brand)}
 .cap-yes{color:var(--good);font-weight:700}
 
@@ -606,7 +607,8 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
       <div class="pnode">
         <div class="rt">Questionnaire</div>
         <h4>The form definition</h4>
-        <p>Canonical URL, LOINC panel code, item codes, answer options with ordinal scores, version, copyright.</p>
+        <p>Canonical URL, LOINC panel code, item codes, answer options with ordinal scores, version,
+          copyright, and <code>derivedFrom</code> the official LOINC form.</p>
       </div>
       <div class="arrow">→</div>
       <div class="pnode">
@@ -630,18 +632,24 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
     <div class="sec-head">
       <div class="kicker">Reference</div>
       <h2>Core LOINC codes for the starter library</h2>
-      <p>LOINC availability does not by itself clear all use rights &mdash; third-party copyright notices
-        still apply. Put license text directly in <code>Questionnaire.copyright</code>.</p>
+      <p>The LOINC panel code in <code>Questionnaire.code</code> is the real interoperability anchor &mdash;
+        it's what a receiving system matches on, whoever rendered the form. LOINC also publishes official
+        FHIR Questionnaires for these panels at <a href="https://fhir.loinc.org/Questionnaire/">fhir.loinc.org</a>,
+        with the canonical <code>http://loinc.org/q/&lt;panel&gt;</code>. Each resource here keeps its own
+        <code>url</code> but cites that official form via <code>derivedFrom</code>.</p>
     </div>
     <div class="tablewrap">
       <table id="codesTable">
         <thead><tr>
           <th>Instrument</th><th class="code">Panel code</th>
           <th class="code">Representative item codes</th><th class="code">Score code</th>
+          <th class="code">Official LOINC form</th>
         </tr></thead>
-        <tbody id="codesBody"><tr><td class="loading" colspan="4">Loading…</td></tr></tbody>
+        <tbody id="codesBody"><tr><td class="loading" colspan="5">Loading…</td></tr></tbody>
       </table>
     </div>
+    <p class="note">LOINC availability does not by itself clear all use rights &mdash; third-party copyright
+      notices still apply. Put the full license text in <code>Questionnaire.copyright</code>.</p>
   </div>
 </section>
 
@@ -936,7 +944,7 @@ function renderCards(){
     c.className='icard';
     c.innerHTML=`
       <div class="top"><span class="abbr">${inst.name}</span>
-        <span class="loinc">panel ${inst.panel.code}</span></div>
+        <a class="loinc" href="${inst.loincTerm}" target="_blank" rel="noopener">panel ${inst.panel.code} ↗</a></div>
       <div class="full">${inst.title}</div>
       <div class="why">${m.why}</div>
       <div class="foot">
@@ -962,9 +970,10 @@ function renderCodes(){
   DATA.instruments.forEach(inst=>{
     const tr=document.createElement('tr');
     tr.innerHTML=`<td><b>${inst.name}</b></td>
-      <td class="code">${inst.panel.code}</td>
-      <td class="code">${inst.itemCodes.join(', ')}</td>
-      <td class="code"><span class="sc">${inst.scoreCode.code}</span></td>`;
+      <td class="code"><a href="${inst.loincTerm}" target="_blank" rel="noopener">${inst.panel.code}</a></td>
+      <td class="code itemcodes">${inst.itemCodes.join(', ')}</td>
+      <td class="code"><span class="sc">${inst.scoreCode.code}</span></td>
+      <td class="code"><a href="${inst.loincSource}" target="_blank" rel="noopener">q/${inst.panel.code} ↗</a></td>`;
     body.appendChild(tr);
   });
 }

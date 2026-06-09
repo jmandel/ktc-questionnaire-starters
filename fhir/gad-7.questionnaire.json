@@ -1,6 +1,9 @@
 {
   "resourceType": "Questionnaire",
   "id": "gad-7",
+  "meta": {
+    "source": "https://fhir.loinc.org/Questionnaire/69737-5"
+  },
   "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
   "version": "1.0.0",
   "name": "GAD_7",
@@ -9,6 +12,9 @@
   "experimental": true,
   "date": "2026-06-09",
   "publisher": "Kill the Clipboard \u2014 starter set",
+  "derivedFrom": [
+    "http://loinc.org/q/69737-5"
+  ],
   "subjectType": [
     "Patient"
   ],
@@ -19,7 +25,7 @@
       "display": "Generalized anxiety disorder 7 item (GAD-7)"
     }
   ],
-  "copyright": "GAD-7 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
+  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. GAD-7 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
   "item": [
     {
       "linkId": "lead",

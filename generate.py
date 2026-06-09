@@ -23,6 +23,19 @@ UCUM = "http://unitsofmeasure.org"
 SITE = "https://joshuamandel.com/ktc-questionnaire-starters"
 CANON = SITE + "/Questionnaire"
 
+# LOINC publishes official FHIR Questionnaires for these panels on its own
+# terminology server (https://fhir.loinc.org/Questionnaire/<panel>) with the
+# canonical URL pattern below. Our resources are our own rendering, so they keep
+# our canonical url but cite LOINC's official form via derivedFrom + meta.source.
+LOINC_Q = "http://loinc.org/q/"          # + panel code  (LOINC's canonical)
+LOINC_FHIR = "https://fhir.loinc.org/Questionnaire/"  # + panel code  (the source server)
+LOINC_NOTICE = (
+    "This material contains content from LOINC (http://loinc.org), copyright "
+    "(c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost "
+    "under the license at http://loinc.org/license. LOINC(R) is a registered "
+    "trademark of Regenstrief Institute, Inc."
+)
+
 # ---------------------------------------------------------------------------
 # Shared answer lists
 # ---------------------------------------------------------------------------
@@ -253,9 +266,11 @@ def build_questionnaire(key, inst):
         "readOnly": True,
     })
 
+    panel_code = inst["panel"]["code"]
     return {
         "resourceType": "Questionnaire",
         "id": key,
+        "meta": {"source": f"{LOINC_FHIR}{panel_code}"},
         "url": f"{CANON}/{key}",
         "version": "1.0.0",
         "name": inst["name"].replace("-", "_"),
@@ -264,9 +279,11 @@ def build_questionnaire(key, inst):
         "experimental": True,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard — starter set",
+        # Our rendering is derived from the official LOINC Questionnaire for this panel.
+        "derivedFrom": [f"{LOINC_Q}{panel_code}"],
         "subjectType": ["Patient"],
         "code": [inst["panel"]],
-        "copyright": inst["copyright"],
+        "copyright": LOINC_NOTICE + " " + inst["copyright"],
         "item": items,
     }
 
@@ -375,12 +392,16 @@ def main():
         write_json(os.path.join(OUT_DIR, f"{key}.bundle.json"), b)
 
         item_codes = [c for (c, _t, _a) in inst["questions"]]
+        panel_code = inst["panel"]["code"]
         site_data["instruments"].append({
             "key": key,
             "name": inst["name"],
             "title": inst["title"],
             "tagline": inst["tagline"],
             "panel": inst["panel"],
+            "loincTerm": f"https://loinc.org/{panel_code}",
+            "loincCanonical": f"{LOINC_Q}{panel_code}",
+            "loincSource": f"{LOINC_FHIR}{panel_code}",
             "scoreCode": inst["score_code"],
             "scoreType": inst["score_type"],
             "itemCodes": item_codes,

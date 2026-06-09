@@ -10,6 +10,9 @@
         "code": "44249-1",
         "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
       },
+      "loincTerm": "https://loinc.org/44249-1",
+      "loincCanonical": "http://loinc.org/q/44249-1",
+      "loincSource": "https://fhir.loinc.org/Questionnaire/44249-1",
       "scoreCode": {
         "system": "http://loinc.org",
         "code": "44261-6",
@@ -33,6 +36,9 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "phq-9",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/44249-1"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9",
         "version": "1.0.0",
         "name": "PHQ_9",
@@ -41,6 +47,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/44249-1"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -51,7 +60,7 @@
             "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
           }
         ],
-        "copyright": "PHQ-9 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. PHQ-9 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
         "item": [
           {
             "linkId": "lead",
@@ -861,6 +870,9 @@
         "code": "69737-5",
         "display": "Generalized anxiety disorder 7 item (GAD-7)"
       },
+      "loincTerm": "https://loinc.org/69737-5",
+      "loincCanonical": "http://loinc.org/q/69737-5",
+      "loincSource": "https://fhir.loinc.org/Questionnaire/69737-5",
       "scoreCode": {
         "system": "http://loinc.org",
         "code": "70274-6",
@@ -882,6 +894,9 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "gad-7",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/69737-5"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
         "version": "1.0.0",
         "name": "GAD_7",
@@ -890,6 +905,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/69737-5"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -900,7 +918,7 @@
             "display": "Generalized anxiety disorder 7 item (GAD-7)"
           }
         ],
-        "copyright": "GAD-7 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. GAD-7 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
         "item": [
           {
             "linkId": "lead",
@@ -1552,6 +1570,9 @@
         "code": "72109-2",
         "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
       },
+      "loincTerm": "https://loinc.org/72109-2",
+      "loincCanonical": "http://loinc.org/q/72109-2",
+      "loincSource": "https://fhir.loinc.org/Questionnaire/72109-2",
       "scoreCode": {
         "system": "http://loinc.org",
         "code": "75626-2",
@@ -1569,6 +1590,9 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "audit-c",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/72109-2"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
         "version": "1.0.0",
         "name": "AUDIT_C",
@@ -1577,6 +1601,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/72109-2"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -1587,7 +1614,7 @@
             "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
           }
         ],
-        "copyright": "The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
         "item": [
           {
             "linkId": "68518-0",
@@ -1957,6 +1984,9 @@
         "code": "91148-7",
         "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
       },
+      "loincTerm": "https://loinc.org/91148-7",
+      "loincCanonical": "http://loinc.org/q/91148-7",
+      "loincSource": "https://fhir.loinc.org/Questionnaire/91148-7",
       "scoreCode": {
         "system": "http://loinc.org",
         "code": "91147-9",
@@ -1974,6 +2004,9 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "peg-3",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/91148-7"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
         "version": "1.0.0",
         "name": "PEG_3",
@@ -1982,6 +2015,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/91148-7"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -1992,7 +2028,7 @@
             "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
           }
         ],
-        "copyright": "The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
         "item": [
           {
             "linkId": "lead",
@@ -2184,6 +2220,9 @@
         "code": "112503-8",
         "display": "Edmonton Symptom Assessment System [Edmonton Symptom Assessment System]"
       },
+      "loincTerm": "https://loinc.org/112503-8",
+      "loincCanonical": "http://loinc.org/q/112503-8",
+      "loincSource": "https://fhir.loinc.org/Questionnaire/112503-8",
       "scoreCode": {
         "system": "http://loinc.org",
         "code": "112493-2",
@@ -2207,6 +2246,9 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "esas-r",
+        "meta": {
+          "source": "https://fhir.loinc.org/Questionnaire/112503-8"
+        },
         "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
         "version": "1.0.0",
         "name": "ESAS_r",
@@ -2215,6 +2257,9 @@
         "experimental": true,
         "date": "2026-06-09",
         "publisher": "Kill the Clipboard \u2014 starter set",
+        "derivedFrom": [
+          "http://loinc.org/q/112503-8"
+        ],
         "subjectType": [
           "Patient"
         ],
@@ -2225,7 +2270,7 @@
             "display": "Edmonton Symptom Assessment System [Edmonton Symptom Assessment System]"
           }
         ],
-        "copyright": "ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
+        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
         "item": [
           {
             "linkId": "lead",
