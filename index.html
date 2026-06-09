@@ -127,6 +127,35 @@ section.alt{background:var(--bg2)}
   color:var(--muted);margin:10px 2px 0}
 .flow-label:first-child{margin-top:0}
 
+/* ---- decision diagram (gate -> ask -> two artifacts) ---- */
+.decide{max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch}
+.dnode{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px;box-shadow:var(--shadow)}
+.dnode .dh{font-size:1.1rem;font-weight:700;letter-spacing:-.01em}
+.dnode .dsub{font-size:.86rem;color:var(--muted);margin-top:5px}
+.gate{border-top:3px solid var(--brand)}
+.branches{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.branch{display:flex;align-items:center;gap:11px;font-size:.94rem;color:var(--ink-2);
+  padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.branch .bt{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:7px;white-space:nowrap;flex:none}
+.branch.ask{border-color:color-mix(in srgb,var(--brand) 45%,var(--line))}
+.bt.ok{background:var(--good-soft);color:var(--good)}
+.bt.go{background:color-mix(in srgb,var(--brand) 16%,transparent);color:var(--brand-ink)}
+.dconn{display:flex;align-items:center;justify-content:center;gap:9px;color:var(--muted);
+  font-size:.8rem;font-weight:600;padding:12px 0;letter-spacing:.02em}
+.dconn::before{content:"↓";font-size:1.15rem;line-height:1}
+.ask-node{border-top:3px solid var(--accent)}
+.dsplit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.dsplit{grid-template-columns:1fr}.decide{max-width:none}}
+.acard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;box-shadow:var(--shadow)}
+.acard .rt{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.8rem;color:var(--brand)}
+.acard.obs .rt{color:var(--accent)}
+.acard h4{margin:8px 0 5px;font-size:1rem}
+.acard p{margin:0;font-size:.9rem;color:var(--ink-2)}
+.bothtie{text-align:center;margin-top:16px;font-size:.92rem;font-weight:600;color:var(--ink-2)}
+.bothtie b{color:var(--brand-ink)}
+
 /* ---- model / stages ---- */
 .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
 @media(max-width:880px){.stages{grid-template-columns:1fr 1fr}}
@@ -443,40 +472,43 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 <section id="rule">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Implementation rule</div>
-      <h2>Five questions to ask before you ask the patient</h2>
-      <p>Run through these before adding any question. They're what keeps a set of questionnaires from
-        slowly turning back into a clipboard.</p>
+      <div class="kicker">The decision</div>
+      <h2>When to ask &mdash; and what comes back</h2>
+      <p>It isn't a checklist. There's one real decision &mdash; ask the patient, or don't &mdash; and when
+        you do ask, the answer comes back as two artifacts that do different jobs.</p>
     </div>
-    <div class="flow">
-      <div class="flow-label">Decide whether to ask</div>
-      <div class="step"><div class="num">1</div><div>
-        <h4>Can this be retrieved as USCDI / US&nbsp;Core data?</h4>
-        <p>Patient, Medication, AllergyIntolerance, Condition, Observation, Procedure, Encounter, Coverage…</p>
-        <span class="then">If yes → retrieve or prefill instead of asking</span>
-      </div></div>
-      <div class="step"><div class="num">2</div><div>
-        <h4>Is the existing data fresh enough for this workflow?</h4>
-        <p>Reuse it when it is. Ask the patient only when it's missing, stale, or due.</p>
-        <span class="then">If no → ask, using "due / missing / stale" logic</span>
-      </div></div>
-      <div class="flow-label">Handle the answer</div>
-      <div class="step"><div class="num">3</div><div>
-        <h4>Does exact wording, answer set, or scoring matter?</h4>
-        <p>Standardized instruments depend on phrasing and a defined response scale.</p>
-        <span class="then">If yes → the patient's app submits a FHIR QuestionnaireResponse</span>
-      </div></div>
-      <div class="step"><div class="num">4</div><div>
-        <h4>Does the score need to be findable or trendable in the chart?</h4>
-        <p>Scores feed dashboards, quality measures, CDS, and longitudinal display.</p>
-        <span class="then">If yes → the EHR derives a LOINC-coded Observation from it</span>
-      </div></div>
-      <div class="step"><div class="num">5</div><div>
-        <h4>So &mdash; QuestionnaireResponse or Observation? Both.</h4>
-        <p>Not one or the other. The response is what the patient's app submits; the Observation is what
-          the EHR derives and files. They serve different jobs, so you keep both.</p>
-        <span class="then">QuestionnaireResponse = the stable, app-submitted surface&nbsp;·&nbsp;Observation = the EHR-derived, fileable artifact</span>
-      </div></div>
+    <div class="decide">
+      <div class="dnode gate">
+        <div class="dh">Is it already in the chart, and fresh enough?</div>
+        <div class="dsub">USCDI / US&nbsp;Core — Patient, Medication, AllergyIntolerance, Condition, Observation,
+          Procedure, Encounter, Coverage…</div>
+        <div class="branches">
+          <div class="branch"><span class="bt ok">Yes · fresh</span> Prefill or reconcile from the chart. Don't ask.</div>
+          <div class="branch ask"><span class="bt go">Missing · stale · due</span> Ask the patient ↓</div>
+        </div>
+      </div>
+      <div class="dconn"></div>
+      <div class="dnode ask-node">
+        <div class="dh">Ask with a FHIR Questionnaire</div>
+        <div class="dsub">Use a questionnaire when the exact wording, answer set, or scoring matters —
+          a standardized instrument depends on it.</div>
+      </div>
+      <div class="dconn">one submission · two artifacts</div>
+      <div class="dsplit">
+        <div class="acard">
+          <div class="rt">QuestionnaireResponse</div>
+          <h4>The stable, app-submitted surface</h4>
+          <p>Exactly what was asked and answered — verbatim, with provenance (who, when). This is what the
+            patient's app submits.</p>
+        </div>
+        <div class="acard obs">
+          <div class="rt">Observation</div>
+          <h4>The EHR-derived, fileable artifact</h4>
+          <p>The LOINC-coded score the EHR derives and files — searchable and trendable, ready for
+            dashboards, quality measures, and CDS.</p>
+        </div>
+      </div>
+      <div class="bothtie">You keep <b>both</b> — not one instead of the other.</div>
     </div>
   </div>
 </section>
