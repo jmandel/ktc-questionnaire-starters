@@ -145,8 +145,12 @@ section.alt{background:var(--bg2)}
   font-size:.8rem;font-weight:600;padding:12px 0;letter-spacing:.02em}
 .dconn::before{content:"↓";font-size:1.15rem;line-height:1}
 .ask-node{border-top:3px solid var(--accent)}
-.dsplit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:600px){.dsplit{grid-template-columns:1fr}.decide{max-width:none}}
+.dsplit{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center}
+.derive{display:flex;flex-direction:column;align-items:center;gap:2px;white-space:nowrap;
+  color:var(--muted);font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.derive .ar{font-size:1.7rem;line-height:1;color:var(--accent)}
+@media(max-width:600px){.dsplit{grid-template-columns:1fr}.decide{max-width:none}
+  .derive{flex-direction:row;gap:8px}.derive .ar{transform:rotate(90deg)}}
 .acard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;box-shadow:var(--shadow)}
 .acard .rt{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.8rem;color:var(--brand)}
@@ -493,7 +497,7 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
         <div class="dsub">Use a questionnaire when the exact wording, answer set, or scoring matters —
           a standardized instrument depends on it.</div>
       </div>
-      <div class="dconn">one submission · two artifacts</div>
+      <div class="dconn"></div>
       <div class="dsplit">
         <div class="acard">
           <div class="rt">QuestionnaireResponse</div>
@@ -501,6 +505,7 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
           <p>Exactly what was asked and answered — verbatim, with provenance (who, when). This is what the
             patient's app submits.</p>
         </div>
+        <div class="derive"><span>EHR derives</span><span class="ar">→</span></div>
         <div class="acard obs">
           <div class="rt">Observation</div>
           <h4>The EHR-derived, fileable artifact</h4>
@@ -508,7 +513,6 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
             dashboards, quality measures, and CDS.</p>
         </div>
       </div>
-      <div class="bothtie">You keep <b>both</b> — not one instead of the other.</div>
     </div>
   </div>
 </section>
