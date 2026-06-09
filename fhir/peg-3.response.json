@@ -1,0 +1,52 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "qr-peg-3-example",
+  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json|1.0.0",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/example",
+    "display": "Example Patient"
+  },
+  "authored": "2026-06-09T09:30:00-05:00",
+  "source": {
+    "reference": "Patient/example"
+  },
+  "item": [
+    {
+      "linkId": "75893-8",
+      "text": "What number best describes your pain on average in the past week?",
+      "answer": [
+        {
+          "valueInteger": 6
+        }
+      ]
+    },
+    {
+      "linkId": "91145-3",
+      "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
+      "answer": [
+        {
+          "valueInteger": 7
+        }
+      ]
+    },
+    {
+      "linkId": "91146-1",
+      "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
+      "answer": [
+        {
+          "valueInteger": 5
+        }
+      ]
+    },
+    {
+      "linkId": "91147-9",
+      "text": "Mean score [PEG]",
+      "answer": [
+        {
+          "valueDecimal": 6.0
+        }
+      ]
+    }
+  ]
+}

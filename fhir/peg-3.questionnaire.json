@@ -1,0 +1,109 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "peg-3",
+  "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json",
+  "version": "1.0.0",
+  "name": "PEG_3",
+  "title": "Pain, Enjoyment of life, General activity (PEG)",
+  "status": "active",
+  "experimental": true,
+  "date": "2026-06-09",
+  "publisher": "Kill the Clipboard \u2014 starter set",
+  "subjectType": [
+    "Patient"
+  ],
+  "code": [
+    {
+      "system": "http://loinc.org",
+      "code": "91148-7",
+      "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
+    }
+  ],
+  "copyright": "The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
+  "item": [
+    {
+      "linkId": "lead",
+      "text": "0 = no pain / does not interfere \u2026 10 = pain as bad as you can imagine / completely interferes",
+      "type": "display"
+    },
+    {
+      "linkId": "75893-8",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "75893-8",
+          "display": "What number best describes your pain on average in the past week?"
+        }
+      ],
+      "text": "What number best describes your pain on average in the past week?",
+      "type": "integer",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+          "valueInteger": 0
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+          "valueInteger": 10
+        }
+      ]
+    },
+    {
+      "linkId": "91145-3",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91145-3",
+          "display": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?"
+        }
+      ],
+      "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
+      "type": "integer",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+          "valueInteger": 0
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+          "valueInteger": 10
+        }
+      ]
+    },
+    {
+      "linkId": "91146-1",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91146-1",
+          "display": "What number best describes how, during the past week, pain has interfered with your general activity?"
+        }
+      ],
+      "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
+      "type": "integer",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+          "valueInteger": 0
+        },
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+          "valueInteger": 10
+        }
+      ]
+    },
+    {
+      "linkId": "91147-9",
+      "code": [
+        {
+          "system": "http://loinc.org",
+          "code": "91147-9",
+          "display": "Mean score [PEG]"
+        }
+      ],
+      "text": "Mean score [PEG]",
+      "type": "decimal",
+      "readOnly": true
+    }
+  ]
+}

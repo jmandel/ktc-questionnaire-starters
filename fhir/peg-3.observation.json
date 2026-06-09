@@ -1,0 +1,41 @@
+{
+  "resourceType": "Observation",
+  "id": "obs-peg-3-score-example",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "91147-9",
+        "display": "Mean score [PEG]"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example",
+    "display": "Example Patient"
+  },
+  "effectiveDateTime": "2026-06-09T09:30:00-05:00",
+  "valueQuantity": {
+    "value": 6.0,
+    "unit": "{score}",
+    "system": "http://unitsofmeasure.org",
+    "code": "{score}"
+  },
+  "derivedFrom": [
+    {
+      "reference": "QuestionnaireResponse/qr-peg-3-example"
+    }
+  ]
+}

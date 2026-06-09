@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kill the Clipboard · FHIR Questionnaire Starter Set</title>
+<meta name="description" content="A small, standards-based starter set of FHIR Questionnaires for patient-reported information that USCDI does not already carry: PHQ-9, GAD-7, AUDIT-C, PEG-3, and ESAS-r." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f6f8fb; --bg2:#eef2f8; --surface:#ffffff; --surface-2:#f3f6fa;
+  --ink:#0e1b2b; --ink-2:#3a4a5e; --muted:#6b7c91; --line:#e2e8f1;
+  --brand:#0d7d8c; --brand-2:#0a5f6b; --brand-ink:#063b43;
+  --accent:#e8743b; --accent-soft:#fce9df;
+  --good:#1f8f5f; --good-soft:#e2f3ea; --warn:#c0492f; --warn-soft:#fbe6e1;
+  --code-bg:#0f1b2a; --code-ink:#d8e3f0;
+  --radius:16px; --radius-sm:10px; --shadow:0 1px 2px rgba(14,27,43,.06),0 8px 30px rgba(14,27,43,.07);
+  --shadow-lg:0 12px 50px rgba(14,27,43,.14);
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0a131e; --bg2:#0d1827; --surface:#101c2c; --surface-2:#16263a;
+    --ink:#eaf1f8; --ink-2:#b9c8d8; --muted:#7e91a6; --line:#1f3247;
+    --brand:#3fb4c4; --brand-2:#65cdd9; --brand-ink:#bdeaf0;
+    --accent:#f2895a; --accent-soft:#3a2418;
+    --good:#4cc78a; --good-soft:#10301f; --warn:#f08066; --warn-soft:#341813;
+    --code-bg:#0a131e; --code-ink:#cfe0f1;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.4);
+    --shadow-lg:0 14px 56px rgba(0,0,0,.55);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.18;margin:0 0 .5em;letter-spacing:-.02em;font-weight:700}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);margin-top:0}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+code,pre{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* ---- nav ---- */
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:1.02rem;color:var(--ink)}
+.brand:hover{text-decoration:none}
+.brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--accent));
+  display:grid;place-items:center;color:#fff;font-size:15px;box-shadow:var(--shadow)}
+.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{color:var(--ink-2);font-size:.9rem;font-weight:500;padding:7px 11px;border-radius:8px}
+.nav-links a:hover{background:var(--surface-2);text-decoration:none;color:var(--ink)}
+.nav-links a.ghub{color:var(--brand);font-weight:600}
+@media(max-width:820px){.nav-links a:not(.ghub){display:none}}
+
+/* ---- hero ---- */
+.hero{position:relative;overflow:hidden;padding:74px 0 56px;
+  background:radial-gradient(1100px 480px at 80% -10%,color-mix(in srgb,var(--brand) 22%,transparent),transparent 60%),
+             radial-gradient(900px 420px at 0% 0%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 55%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.78rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--brand-2);background:color-mix(in srgb,var(--brand) 12%,transparent);
+  padding:6px 12px;border-radius:999px;border:1px solid color-mix(in srgb,var(--brand) 24%,transparent)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem);font-weight:800;margin:18px 0 16px;max-width:16ch}
+.hero .lede{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--ink-2);max-width:60ch;margin-bottom:8px}
+.thesis{margin-top:26px;padding:18px 22px;border-left:4px solid var(--brand);background:var(--surface);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;box-shadow:var(--shadow);max-width:64ch;font-size:1.08rem}
+.thesis b{color:var(--brand-ink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:11px;font-weight:600;
+  font-size:.95rem;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+.btn-primary:hover{background:var(--brand-2);color:#042b31}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line);box-shadow:var(--shadow)}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.badge{font-size:.78rem;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--surface);
+  border:1px solid var(--line);color:var(--ink-2)}
+.badge b{color:var(--brand)}
+
+/* ---- sections ---- */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section.alt{background:var(--bg2)}
+.sec-head{max-width:62ch;margin-bottom:34px}
+.sec-head .kicker{color:var(--accent);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.sec-head p{color:var(--ink-2);font-size:1.05rem;margin-top:6px}
+
+/* ---- boundary two-col ---- */
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.boundary{grid-template-columns:1fr}}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.bcard.no{border-top:4px solid var(--warn)}
+.bcard.yes{border-top:4px solid var(--good)}
+.bcard h3{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.tag{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:7px;letter-spacing:.03em}
+.tag.no{background:var(--warn-soft);color:var(--warn)}
+.tag.yes{background:var(--good-soft);color:var(--good)}
+.bcard ul{margin:14px 0 0;padding-left:20px;color:var(--ink-2)}
+.bcard ul li{margin-bottom:7px}
+.bcard .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:.76rem;font-weight:500;padding:4px 10px;border-radius:7px;background:var(--surface-2);
+  border:1px solid var(--line);color:var(--muted)}
+
+/* ---- decision flow ---- */
+.flow{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);align-items:start}
+.step .num{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.05rem;box-shadow:var(--shadow)}
+.step h4{margin:2px 0 4px;font-size:1.05rem}
+.step p{margin:0;color:var(--ink-2);font-size:.97rem}
+.step .then{margin-top:8px;display:inline-block;font-size:.86rem;font-weight:600;color:var(--brand-ink);
+  background:color-mix(in srgb,var(--brand) 10%,transparent);padding:4px 10px;border-radius:8px}
+
+/* ---- instrument cards ---- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
+.icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .14s ease,box-shadow .14s ease}
+.icard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.icard .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.icard .abbr{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+.icard .loinc{font-size:.74rem;font-weight:600;color:var(--brand);background:color-mix(in srgb,var(--brand) 10%,transparent);
+  padding:4px 8px;border-radius:7px}
+.icard .full{font-size:.86rem;color:var(--muted);margin-bottom:10px;min-height:2.6em}
+.icard .why{font-size:.93rem;color:var(--ink-2);flex:1}
+.icard .foot{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pill{font-size:.74rem;font-weight:600;padding:4px 10px;border-radius:999px}
+.pill.pub{background:var(--good-soft);color:var(--good)}
+.pill.terms{background:var(--accent-soft);color:var(--accent)}
+.icard a.try{margin-left:auto;font-weight:600;font-size:.86rem}
+
+/* ---- generic table ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--surface-2);font-weight:700;color:var(--ink);position:sticky;top:0;white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--surface-2)}
+td.code,th.code{font-family:'JetBrains Mono',monospace;white-space:nowrap}
+td .sc{font-weight:700;color:var(--brand)}
+.cap-yes{color:var(--good);font-weight:700}
+
+/* ---- pattern diagram ---- */
+.pattern{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:stretch}
+@media(max-width:760px){.pattern{grid-template-columns:1fr}.pattern .arrow{transform:rotate(90deg);justify-self:center}}
+.pnode{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.pnode .rt{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--brand);font-size:.86rem}
+.pnode h4{margin:8px 0 6px}
+.pnode p{font-size:.88rem;color:var(--ink-2);margin:0}
+.arrow{display:grid;place-items:center;color:var(--muted);font-size:1.6rem;font-weight:700}
+
+/* ---- explorer ---- */
+.explorer{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden}
+.exp-tabs{display:flex;gap:4px;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.exp-tabs button{appearance:none;border:1px solid transparent;background:transparent;color:var(--ink-2);
+  font-family:inherit;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:9px;cursor:pointer}
+.exp-tabs button:hover{background:color-mix(in srgb,var(--brand) 8%,transparent)}
+.exp-tabs button.active{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
+.exp-body{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+@media(max-width:900px){.exp-body{grid-template-columns:1fr}}
+.exp-form{padding:24px;border-right:1px solid var(--line)}
+.exp-form .lead{font-size:.92rem;color:var(--muted);font-style:italic;margin-bottom:18px}
+.q{padding:14px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border-bottom:none}
+.q .qt{font-weight:600;font-size:.95rem;margin-bottom:10px}
+.q .qt .ix{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--surface-2);
+  border:1px solid var(--line);font-size:.74rem;color:var(--muted);margin-right:8px;font-family:'JetBrains Mono',monospace}
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;
+  cursor:pointer;font-size:.9rem;transition:all .1s ease}
+.opt:hover{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 5%,transparent)}
+.opt.sel{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 12%,transparent);font-weight:600}
+.opt input{accent-color:var(--brand)}
+.opt .osc{margin-left:auto;font-size:.74rem;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.opt.sel .osc{color:var(--brand)}
+.scale{display:flex;flex-wrap:wrap;gap:6px}
+.scale button{width:40px;height:40px;border-radius:9px;border:1px solid var(--line);background:var(--surface);
+  font-family:'JetBrains Mono',monospace;font-weight:600;cursor:pointer;color:var(--ink-2);transition:all .1s ease}
+.scale button:hover{border-color:var(--brand)}
+.scale button.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
+.scale .ends{width:100%;display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:2px}
+
+.exp-out{display:flex;flex-direction:column;background:var(--surface-2)}
+.score-card{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:20px;background:var(--surface)}
+.score-num{font-size:2.6rem;font-weight:800;line-height:1;color:var(--brand);font-family:'JetBrains Mono',monospace}
+.score-meta{flex:1}
+.score-meta .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.score-meta .code{font-family:'JetBrains Mono',monospace;font-size:.84rem;color:var(--ink-2)}
+.flag{margin:0 24px;padding:12px 16px;border-radius:10px;background:var(--warn-soft);color:var(--warn);
+  font-size:.86rem;font-weight:500;display:none;align-items:flex-start;gap:10px}
+.flag.show{display:flex}
+.flag::before{content:"⚠";font-size:1.1rem;line-height:1.2}
+.res-tabs{display:flex;gap:4px;padding:12px 16px 0}
+.res-tabs button{appearance:none;border:none;background:transparent;color:var(--muted);font-family:inherit;
+  font-weight:600;font-size:.82rem;padding:6px 10px;border-radius:7px 7px 0 0;cursor:pointer}
+.res-tabs button.active{color:var(--brand);background:var(--code-bg)}
+.codebox{flex:1;position:relative;margin:0 16px 16px;border-radius:0 10px 10px 10px;overflow:hidden;background:var(--code-bg)}
+.codebox .copy{position:absolute;top:10px;right:10px;z-index:2;font-size:.74rem;font-weight:600;padding:5px 10px;
+  border-radius:7px;background:rgba(255,255,255,.1);color:#cfe0f1;border:1px solid rgba(255,255,255,.15);cursor:pointer}
+.codebox .copy:hover{background:rgba(255,255,255,.2)}
+pre.code{margin:0;padding:18px;overflow:auto;max-height:420px;font-size:.8rem;line-height:1.55;color:var(--code-ink)}
+.tok-key{color:#7fd1de}.tok-str{color:#a8e0a0}.tok-num{color:#f2b07a}.tok-bool{color:#e08fb0}.tok-null{color:#9aa7b8}
+.dl-row{padding:0 16px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.dl-row a{font-size:.78rem;font-weight:600;padding:6px 11px;border-radius:8px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2)}
+.dl-row a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
+
+/* ---- guardrails ---- */
+.guards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.guard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.guard .g-ic{font-size:1.3rem;margin-bottom:6px}
+.guard h4{font-size:1rem;margin-bottom:6px}
+.guard p{font-size:.9rem;color:var(--ink-2);margin:0}
+
+/* ---- callout ---- */
+.callout{background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 14%,var(--surface)),var(--surface));
+  border:1px solid color-mix(in srgb,var(--brand) 30%,var(--line));border-radius:var(--radius);
+  padding:28px 30px;box-shadow:var(--shadow);font-size:1.15rem;color:var(--ink)}
+.callout b{color:var(--brand-ink)}
+
+.note{font-size:.86rem;color:var(--muted);margin-top:18px}
+.note code{background:var(--surface-2);padding:1px 6px;border-radius:5px;font-size:.85em;border:1px solid var(--line)}
+
+footer{padding:48px 0 60px;border-top:1px solid var(--line);background:var(--bg2);color:var(--ink-2);font-size:.9rem}
+footer .grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{font-weight:500}
+footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
+.loading{padding:40px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="dot">✚</span> KTC&nbsp;Questionnaire&nbsp;Starters</a>
+    <nav class="nav-links">
+      <a href="#boundary">The boundary</a>
+      <a href="#rule">Decision rule</a>
+      <a href="#set">Starter set</a>
+      <a href="#explore">Explore</a>
+      <a href="#codes">LOINC codes</a>
+      <a href="#govern">Governance</a>
+      <a class="ghub" href="https://github.com/jmandel/ktc-questionnaire-starters">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero" style="border-top:none">
+  <div class="wrap">
+    <span class="eyebrow">Kill the Clipboard · FHIR Questionnaire</span>
+    <h1>Don't digitize the clipboard. Ask only what the chart can't already answer.</h1>
+    <p class="lede">
+      A small, standards-based starter set of FHIR&nbsp;R4 Questionnaires for high-value,
+      patient-reported information that USCDI / US&nbsp;Core data does <em>not</em> already carry &mdash;
+      with worked QuestionnaireResponse and extracted, LOINC-coded Observation examples you can try live.
+    </p>
+    <div class="thesis">
+      <b>USCDI first for reusable chart facts.</b> FHIR&nbsp;Questionnaire only when asking the
+      patient is clinically necessary &mdash; current, subjective, scored, episode-specific, or
+      workflow-triggering information.
+    </div>
+    <div class="cta">
+      <a class="btn btn-primary" href="#explore">Try a live instrument →</a>
+      <a class="btn btn-ghost" href="#set">See the five</a>
+    </div>
+    <div class="badges">
+      <span class="badge"><b>5</b> instruments</span>
+      <span class="badge"><b>FHIR R4</b> Questionnaire · Response · Observation</span>
+      <span class="badge"><b>LOINC</b>-coded panels &amp; scores</span>
+      <span class="badge">Public-domain / no-permission terms</span>
+    </div>
+  </div>
+</section>
+
+<!-- BOUNDARY -->
+<section id="boundary">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The distinction</div>
+      <h2>USCDI exchange vs. a necessary questionnaire</h2>
+      <p>Most "intake clipboard" content already lives in the chart as structured US&nbsp;Core data.
+        Re-asking for it is the failure mode. Questionnaire earns its place only when the
+        <em>capture event itself</em> matters.</p>
+    </div>
+    <div class="boundary">
+      <div class="bcard no">
+        <h3><span class="tag no">Don't ask</span> Retrieve from USCDI / US&nbsp;Core</h3>
+        <p>If the chart already knows it, prefill or reconcile &mdash; never make the patient retype it.</p>
+        <div class="chips">
+          <span class="chip">Demographics</span><span class="chip">Medications</span>
+          <span class="chip">Allergies</span><span class="chip">Problems</span>
+          <span class="chip">Labs</span><span class="chip">Vitals</span>
+          <span class="chip">Procedures</span><span class="chip">Encounters</span>
+          <span class="chip">Coverage</span><span class="chip">Care team</span>
+          <span class="chip">Notes</span><span class="chip">Health-status observations</span>
+        </div>
+      </div>
+      <div class="bcard yes">
+        <h3><span class="tag yes">Do ask</span> Capture as a Questionnaire</h3>
+        <p>Use a Questionnaire when the system must know, with provenance:</p>
+        <ul>
+          <li>exactly <b>what question</b> was asked, and the exact <b>answer set</b>;</li>
+          <li>the <b>score</b> or interpretation method;</li>
+          <li><b>when</b> the patient answered &mdash; and whether it's fresh enough for this visit;</li>
+          <li>whether the response should <b>trigger a workflow</b> (referral, safety follow-up, alert).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULE -->
+<section id="rule" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Implementation rule</div>
+      <h2>Five questions to ask before you ask the patient</h2>
+      <p>Apply this test to every candidate field. It keeps a questionnaire library from quietly
+        becoming a digital clipboard.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><div class="num">1</div><div>
+        <h4>Can this be retrieved as USCDI / US&nbsp;Core data?</h4>
+        <p>Patient, Medication, AllergyIntolerance, Condition, Observation, Procedure, Encounter, Coverage…</p>
+        <span class="then">If yes → retrieve or prefill instead of asking</span>
+      </div></div>
+      <div class="step"><div class="num">2</div><div>
+        <h4>Is the existing data fresh enough for this workflow?</h4>
+        <p>Reuse it when it is. Ask the patient only when it's missing, stale, or due.</p>
+        <span class="then">If no → ask, using "due / missing / stale" logic</span>
+      </div></div>
+      <div class="step"><div class="num">3</div><div>
+        <h4>Does exact wording, answer set, or scoring matter?</h4>
+        <p>Standardized instruments depend on phrasing and a defined response scale.</p>
+        <span class="then">If yes → use Questionnaire + QuestionnaireResponse</span>
+      </div></div>
+      <div class="step"><div class="num">4</div><div>
+        <h4>Does the answer need to be searchable or trendable?</h4>
+        <p>Scores feed dashboards, quality measures, CDS, and longitudinal display.</p>
+        <span class="then">If yes → extract a LOINC-coded Observation</span>
+      </div></div>
+      <div class="step"><div class="num">5</div><div>
+        <h4>Does the answer require action?</h4>
+        <p>A result that demands response can't just disappear into a data store.</p>
+        <span class="then">If yes → create local workflow: Task, alert, referral, safety follow-up</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STARTER SET -->
+<section id="set">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The starter set</div>
+      <h2>Five instruments &mdash; a capability demo, not a closed catalog</h2>
+      <p>Widely recognized in U.S. clinical practice, simple to score, and diverse enough to prove
+        the general pattern: render a Questionnaire, collect a Response, preserve provenance, extract
+        Observations, route follow-up.</p>
+    </div>
+    <div class="cards" id="cards"><div class="loading">Loading instruments…</div></div>
+  </div>
+</section>
+
+<!-- CAPABILITY MATRIX -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why these five</div>
+      <h2>What each instrument demonstrates</h2>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Capability</th><th>Demonstrated by</th></tr></thead>
+        <tbody>
+          <tr><td>Simple short-form screen</td><td>PHQ-2, GAD-2, AUDIT-C</td></tr>
+          <tr><td>Longer scored instrument</td><td>PHQ-9, GAD-7</td></tr>
+          <tr><td>Shared answer choices &amp; ordinal scoring</td><td>PHQ-9, GAD-7</td></tr>
+          <tr><td>Numeric 0–10 patient-reported scale</td><td>PEG-3, ESAS-r</td></tr>
+          <tr><td>Average (mean) score calculation</td><td>PEG-3</td></tr>
+          <tr><td>Total score calculation</td><td>PHQ-9, GAD-7, AUDIT-C, ESAS-r</td></tr>
+          <tr><td>Monitoring over time</td><td>PHQ-9, GAD-7, PEG-3, ESAS-r</td></tr>
+          <tr><td>Workflow escalation</td><td>PHQ-9 item 9, high AUDIT-C, severe pain, severe dyspnea</td></tr>
+          <tr><td>Specialty extensibility</td><td>ESAS-r (oncology / palliative / serious illness)</td></tr>
+          <tr><td>Searchable downstream data</td><td>Extracted LOINC-coded Observations</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORER -->
+<section id="explore">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Live examples</div>
+      <h2>Fill an instrument &mdash; watch the FHIR build itself</h2>
+      <p>Pick an instrument, answer it, and see the score compute live alongside the
+        <span class="mono">QuestionnaireResponse</span> and the extracted, LOINC-coded
+        <span class="mono">Observation</span>. Every byte is downloadable below.</p>
+    </div>
+    <div class="explorer" id="explorer">
+      <div class="exp-tabs" id="instTabs"></div>
+      <div class="exp-body">
+        <div class="exp-form" id="form"><div class="loading">Loading…</div></div>
+        <div class="exp-out">
+          <div class="score-card">
+            <div class="score-num" id="scoreNum">–</div>
+            <div class="score-meta">
+              <div class="lbl" id="scoreLbl">Score</div>
+              <div class="code" id="scoreCode"></div>
+            </div>
+          </div>
+          <div class="flag" id="flag"></div>
+          <div class="res-tabs" id="resTabs">
+            <button data-res="response" class="active">QuestionnaireResponse</button>
+            <button data-res="observation">Observation</button>
+            <button data-res="questionnaire">Questionnaire</button>
+          </div>
+          <div class="codebox">
+            <button class="copy" id="copyBtn">Copy</button>
+            <pre class="code" id="codeOut"></pre>
+          </div>
+          <div class="dl-row" id="dlRow"></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Scores are computed in the browser from each answer's <code>ordinalValue</code>
+      (choice items) or numeric value (0–10 scales). PEG-3 reports the <b>mean</b>; the others report a
+      <b>total</b>. These are illustrative resources on <code>https://example.org</code>-style URLs &mdash;
+      add your SDC/US&nbsp;Core profiles, full answer lists, and copyright text for production.</p>
+  </div>
+</section>
+
+<!-- PATTERN -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The FHIR pattern</div>
+      <h2>Three resources, one provenance chain</h2>
+      <p>In FHIR&nbsp;R4 the <b>Questionnaire</b> carries the item codes; the <b>QuestionnaireResponse</b>
+        records answers by <code>linkId</code>; an extracted <b>Observation</b> makes the score searchable.</p>
+    </div>
+    <div class="pattern">
+      <div class="pnode">
+        <div class="rt">Questionnaire</div>
+        <h4>The form definition</h4>
+        <p>Canonical URL, LOINC panel code, item codes, answer options with ordinal scores, version, copyright.</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pnode">
+        <div class="rt">QuestionnaireResponse</div>
+        <h4>The patient's answers</h4>
+        <p>Answers by <code>linkId</code>, author / source, <code>authored</code> timestamp, link back to the Questionnaire. The raw provenance record.</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pnode">
+        <div class="rt">Observation</div>
+        <h4>The searchable score</h4>
+        <p><code>category=survey</code>, LOINC score code, <code>valueQuantity</code> in <code>{score}</code>, <code>derivedFrom</code> the response.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOINC CODES -->
+<section id="codes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Reference</div>
+      <h2>Core LOINC codes for the starter library</h2>
+      <p>LOINC availability does not by itself clear all use rights &mdash; third-party copyright notices
+        still apply. Put license text directly in <code>Questionnaire.copyright</code>.</p>
+    </div>
+    <div class="tablewrap">
+      <table id="codesTable">
+        <thead><tr>
+          <th>Instrument</th><th class="code">Panel code</th>
+          <th class="code">Representative item codes</th><th class="code">Score code</th>
+        </tr></thead>
+        <tbody id="codesBody"><tr><td class="loading" colspan="4">Loading…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- GOVERNANCE -->
+<section id="govern" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Governance guardrails</div>
+      <h2>Keep it a questionnaire library, not a clipboard</h2>
+    </div>
+    <div class="guards">
+      <div class="guard"><div class="g-ic">🚫</div><h4>No re-asking USCDI facts</h4>
+        <p>If it's available as US&nbsp;Core data, retrieve it first. Never default to re-collection.</p></div>
+      <div class="guard"><div class="g-ic">⏱️</div><h4>Due / missing / stale logic</h4>
+        <p>Ask an instrument only when clinically due, missing, stale, or needed for the current episode.</p></div>
+      <div class="guard"><div class="g-ic">🧾</div><h4>Preserve the raw response</h4>
+        <p>Keep the QuestionnaireResponse: exact form, wording, answer, respondent, and timestamp.</p></div>
+      <div class="guard"><div class="g-ic">🔎</div><h4>Extract only useful Observations</h4>
+        <p>At minimum the score. Extract per-item Observations only when search / CDS / reporting needs them.</p></div>
+      <div class="guard"><div class="g-ic">©️</div><h4>Represent licensing explicitly</h4>
+        <p>Set <code>copyright</code>, <code>publisher</code>, <code>version</code>, source, and "do not modify" notes.</p></div>
+      <div class="guard"><div class="g-ic">🚨</div><h4>Escalation is local but required</h4>
+        <p>PHQ-9 item 9, severe dyspnea / pain, high alcohol risk must route somewhere — not vanish into storage.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM LINE -->
+<section>
+  <div class="wrap">
+    <div class="callout">
+      <p style="margin:0">“We are not standardizing the clipboard. We are standardizing the ability to ask
+        <b>necessary, patient-reported, scored, current questions</b> when USCDI data is not enough.”</p>
+      <p style="margin:14px 0 0;font-size:.95rem;color:var(--ink-2)">
+        Any appropriately licensed or locally authored instrument can follow the same pattern:
+        a FHIR&nbsp;Questionnaire, answered as a QuestionnaireResponse, extracted into coded Observations
+        where needed, and wired to local follow-up.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="brand" style="margin-bottom:8px"><span class="dot">✚</span> KTC Questionnaire Starters</div>
+        <div>A "Kill the Clipboard" proof-pattern set · FHIR R4</div>
+      </div>
+      <div>
+        <div><a href="https://github.com/jmandel/ktc-questionnaire-starters">Source on GitHub ↗</a></div>
+        <div><a href="fhir/">Browse raw FHIR artifacts ↗</a></div>
+        <div><a href="https://hl7.org/fhir/R4/questionnaire.html">FHIR R4 Questionnaire ↗</a></div>
+      </div>
+    </div>
+    <p class="disc">For demonstration and implementation reference only — not medical advice and not a
+      certified instrument distribution. Instrument copyright and use terms belong to their respective
+      owners (Pfizer Inc. for PHQ/GAD with no-permission-required terms; WHO public domain for AUDIT;
+      public domain for PEG; Alberta Health Services for ESAS-r). LOINC® is a registered trademark of
+      Regenstrief Institute, Inc. Verify codes, answer lists, and licensing against authoritative sources
+      before production use.</p>
+  </div>
+</footer>
+
+<script>
+const FALLBACK_DATA = null;
+let DATA = null, CURRENT = null, CURRENT_RES = 'response';
+const state = {}; // key -> {linkId: answerScoreOrValue}
+
+/* ---------- tiny JSON syntax highlighter ---------- */
+function hl(obj){
+  let s = JSON.stringify(obj, null, 2);
+  s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  s = s.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(\.\d+)?([eE][+\-]?\d+)?)/g,
+    (m)=>{
+      let cls='tok-num';
+      if(/^"/.test(m)) cls=/:$/.test(m)?'tok-key':'tok-str';
+      else if(/true|false/.test(m)) cls='tok-bool';
+      else if(/null/.test(m)) cls='tok-null';
+      return '<span class="'+cls+'">'+m+'</span>';
+    });
+  return s;
+}
+
+/* ---------- scoring ---------- */
+function ordinalOf(item, code){
+  // find answerOption with valueCoding.code === code -> ordinalValue
+  for(const o of (item.answerOption||[])){
+    if(o.valueCoding && o.valueCoding.code === code){
+      const ext = (o.extension||[]).find(e=>e.url.endsWith('ordinalValue'));
+      return ext ? ext.valueDecimal : 0;
+    }
+  }
+  return 0;
+}
+function answeredItems(inst){
+  return inst.questionnaire.item.filter(it => it.type==='choice' || it.type==='integer' && !it.readOnly && it.linkId!==inst.scoreCode.code);
+}
+function computeScore(inst){
+  const st = state[inst.key]||{};
+  let sum=0, n=0;
+  for(const it of answeredItems(inst)){
+    if(!(it.linkId in st)) continue;
+    n++;
+    sum += st[it.linkId].score;
+  }
+  const total = inst.scoreType==='decimal' ? Math.round((sum/Math.max(n,1))*10)/10 : sum;
+  const complete = n === answeredItems(inst).length;
+  return {total, n, complete, count: answeredItems(inst).length};
+}
+
+/* ---------- build live resources ---------- */
+function liveResponse(inst){
+  const st = state[inst.key]||{};
+  const items=[];
+  for(const it of inst.questionnaire.item){
+    if(it.type==='display') continue;
+    if(it.linkId===inst.scoreCode.code) continue;
+    const entry = st[it.linkId];
+    if(!entry) continue;
+    let answer;
+    if(it.type==='choice') answer={valueCoding:{system:'http://loinc.org',code:entry.code,display:entry.display}};
+    else answer={valueInteger:entry.score};
+    items.push({linkId:it.linkId,text:it.text,answer:[answer]});
+  }
+  const sc=computeScore(inst);
+  if(sc.complete){
+    const sAns = inst.scoreType==='decimal' ? {valueDecimal:sc.total} : {valueInteger:sc.total};
+    items.push({linkId:inst.scoreCode.code,text:inst.scoreCode.display,answer:[sAns]});
+  }
+  return {
+    resourceType:'QuestionnaireResponse',
+    id:'qr-'+inst.key+'-live',
+    questionnaire: inst.questionnaire.url + '|1.0.0',
+    status: sc.complete?'completed':'in-progress',
+    subject:{reference:'Patient/example',display:'Example Patient'},
+    authored:'2026-06-09T09:30:00-05:00',
+    source:{reference:'Patient/example'},
+    item:items
+  };
+}
+function liveObservation(inst){
+  const sc=computeScore(inst);
+  return {
+    resourceType:'Observation',
+    id:'obs-'+inst.key+'-live',
+    status: sc.complete?'final':'preliminary',
+    category:[{coding:[{system:'http://terminology.hl7.org/CodeSystem/observation-category',code:'survey',display:'Survey'}]}],
+    code:{coding:[inst.scoreCode]},
+    subject:{reference:'Patient/example',display:'Example Patient'},
+    effectiveDateTime:'2026-06-09T09:30:00-05:00',
+    valueQuantity:{value:sc.total,unit:'{score}',system:'http://unitsofmeasure.org',code:'{score}'},
+    derivedFrom:[{reference:'QuestionnaireResponse/qr-'+inst.key+'-live'}]
+  };
+}
+
+/* ---------- render ---------- */
+function instById(key){return DATA.instruments.find(i=>i.key===key);}
+
+function renderForm(inst){
+  CURRENT=inst.key;
+  if(!state[inst.key]) state[inst.key]={};
+  const q=inst.questionnaire;
+  const form=document.getElementById('form');
+  let html='';
+  let qn=0;
+  for(const it of q.item){
+    if(it.type==='display'){html+=`<div class="lead">${it.text}</div>`;continue;}
+    if(it.linkId===inst.scoreCode.code) continue;
+    qn++;
+    const cur=state[inst.key][it.linkId];
+    html+=`<div class="q"><div class="qt"><span class="ix">${qn}</span>${it.text}</div>`;
+    if(it.type==='choice'){
+      html+='<div class="opts">';
+      for(const o of it.answerOption){
+        const code=o.valueCoding.code, disp=o.valueCoding.display;
+        const sc=(o.extension||[]).find(e=>e.url.endsWith('ordinalValue'))?.valueDecimal ?? 0;
+        const sel=cur&&cur.code===code?'sel':'';
+        html+=`<label class="opt ${sel}" data-link="${it.linkId}" data-code="${code}" data-disp="${disp}" data-score="${sc}">
+          <input type="radio" name="${inst.key}-${it.linkId}" ${sel?'checked':''}/>
+          <span>${disp}</span><span class="osc">+${sc}</span></label>`;
+      }
+      html+='</div>';
+    } else { // integer 0-10 scale
+      html+='<div class="scale">';
+      for(let v=0;v<=10;v++){
+        const sel=cur&&cur.score===v?'sel':'';
+        html+=`<button class="${sel}" data-link="${it.linkId}" data-score="${v}">${v}</button>`;
+      }
+      html+='<div class="ends"><span>None</span><span>Worst</span></div></div>';
+    }
+    html+='</div>';
+  }
+  form.innerHTML=html;
+
+  form.querySelectorAll('.opt').forEach(el=>{
+    el.addEventListener('click',()=>{
+      state[inst.key][el.dataset.link]={code:el.dataset.code,display:el.dataset.disp,score:+el.dataset.score};
+      refresh(inst);
+    });
+  });
+  form.querySelectorAll('.scale button').forEach(el=>{
+    el.addEventListener('click',()=>{
+      state[inst.key][el.dataset.link]={score:+el.dataset.score};
+      refresh(inst);
+    });
+  });
+  refresh(inst);
+}
+
+function refresh(inst){
+  // update selected styles without full re-render
+  const form=document.getElementById('form');
+  const st=state[inst.key]||{};
+  form.querySelectorAll('.opt').forEach(el=>{
+    const sel = st[el.dataset.link] && st[el.dataset.link].code===el.dataset.code;
+    el.classList.toggle('sel',!!sel);
+    const input=el.querySelector('input'); if(input) input.checked=!!sel;
+  });
+  form.querySelectorAll('.scale button').forEach(el=>{
+    const sel = st[el.dataset.link] && st[el.dataset.link].score===+el.dataset.score;
+    el.classList.toggle('sel',!!sel);
+  });
+
+  const sc=computeScore(inst);
+  document.getElementById('scoreNum').textContent = sc.n===0 ? '–' : sc.total;
+  document.getElementById('scoreLbl').textContent =
+    (inst.scoreType==='decimal'?'Mean score':'Total score') + ` · ${sc.n}/${sc.count} answered`;
+  document.getElementById('scoreCode').textContent = `LOINC ${inst.scoreCode.code} · ${inst.scoreCode.display}`;
+
+  // safety flag (PHQ-9 item 9)
+  const flag=document.getElementById('flag');
+  let showFlag=false;
+  if(inst.key==='phq-9'){
+    const item9=st['44260-8'];
+    if(item9 && item9.score>0){showFlag=true; flag.textContent='PHQ-9 item 9 is positive — trigger your local suicide-risk follow-up workflow now, regardless of total score.';}
+  }
+  if(!showFlag && inst.flagNote && sc.complete){
+    // show informational flag for some when complete
+  }
+  flag.classList.toggle('show',showFlag);
+
+  renderRes(inst);
+}
+
+function currentResource(inst){
+  if(CURRENT_RES==='response') return liveResponse(inst);
+  if(CURRENT_RES==='observation') return liveObservation(inst);
+  return inst.questionnaire;
+}
+function renderRes(inst){
+  document.getElementById('codeOut').innerHTML = hl(currentResource(inst));
+  const dl=document.getElementById('dlRow');
+  dl.innerHTML=`
+    <a href="fhir/${inst.key}.questionnaire.json" download>↓ questionnaire.json</a>
+    <a href="fhir/${inst.key}.response.json" download>↓ response.json</a>
+    <a href="fhir/${inst.key}.observation.json" download>↓ observation.json</a>
+    <a href="fhir/${inst.key}.bundle.json" download>↓ bundle.json</a>`;
+}
+
+function renderInstTabs(){
+  const tabs=document.getElementById('instTabs');
+  tabs.innerHTML='';
+  DATA.instruments.forEach((inst,i)=>{
+    const b=document.createElement('button');
+    b.textContent=inst.name;
+    if(i===0) b.classList.add('active');
+    b.addEventListener('click',()=>{
+      tabs.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      renderForm(inst);
+    });
+    tabs.appendChild(b);
+  });
+}
+
+function renderCards(){
+  const wrap=document.getElementById('cards');
+  const meta={
+    'phq-9':{why:'A familiar scored screen with shared answer choices, a total score, and a built-in safety item. Ask it when a current depression screen is due — don\'t recreate historical mental-health data already in the chart.',lic:'No permission required'},
+    'gad-7':{why:'The same multi-item Likert scoring engine as PHQ-9 — anxiety is current patient-reported state, not a static chart fact. Pairs naturally with PHQ.',lic:'No permission required'},
+    'audit-c':{why:'A three-question alcohol screen. Social history may be stale or missing; this captures a fresh, scored risk assessment when one is due.',lic:'Public domain (WHO)'},
+    'peg-3':{why:'The cleanest "USCDI is not enough" example: the chart may show chronic pain, but not how pain interfered with enjoyment of life and activity this week.',lic:'Public domain'},
+    'esas-r':{why:'A multi-symptom patient-reported outcome for oncology, palliative care, and serious-illness monitoring — captures current symptom burden, not intake demographics.',lic:'Public domain w/ acknowledgment'},
+  };
+  wrap.innerHTML='';
+  DATA.instruments.forEach(inst=>{
+    const m=meta[inst.key]||{why:'',lic:''};
+    const pubClass = m.lic.includes('Public')?'pub':'terms';
+    const c=document.createElement('div');
+    c.className='icard';
+    c.innerHTML=`
+      <div class="top"><span class="abbr">${inst.name}</span>
+        <span class="loinc">panel ${inst.panel.code}</span></div>
+      <div class="full">${inst.title}</div>
+      <div class="why">${m.why}</div>
+      <div class="foot">
+        <span class="pill ${pubClass}">${m.lic}</span>
+        <a class="try" href="#explore" data-go="${inst.key}">Try it →</a>
+      </div>`;
+    wrap.appendChild(c);
+  });
+  wrap.querySelectorAll('a[data-go]').forEach(a=>{
+    a.addEventListener('click',()=>{
+      const key=a.dataset.go;
+      const tabs=document.getElementById('instTabs');
+      const idx=DATA.instruments.findIndex(i=>i.key===key);
+      tabs.querySelectorAll('button').forEach((x,i)=>x.classList.toggle('active',i===idx));
+      renderForm(instById(key));
+    });
+  });
+}
+
+function renderCodes(){
+  const body=document.getElementById('codesBody');
+  body.innerHTML='';
+  DATA.instruments.forEach(inst=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><b>${inst.name}</b></td>
+      <td class="code">${inst.panel.code}</td>
+      <td class="code">${inst.itemCodes.join(', ')}</td>
+      <td class="code"><span class="sc">${inst.scoreCode.code}</span></td>`;
+    body.appendChild(tr);
+  });
+}
+
+function wireResTabs(){
+  document.querySelectorAll('#resTabs button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('#resTabs button').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      CURRENT_RES=b.dataset.res;
+      renderRes(instById(CURRENT));
+    });
+  });
+  document.getElementById('copyBtn').addEventListener('click',async()=>{
+    const txt=JSON.stringify(currentResource(instById(CURRENT)),null,2);
+    try{await navigator.clipboard.writeText(txt);
+      const b=document.getElementById('copyBtn');const o=b.textContent;b.textContent='Copied ✓';
+      setTimeout(()=>b.textContent=o,1200);}catch(e){}
+  });
+}
+
+async function boot(){
+  try{
+    const res=await fetch('data.json',{cache:'no-cache'});
+    DATA=await res.json();
+  }catch(e){
+    document.getElementById('form').innerHTML=
+      '<div class="loading">Could not load <code>data.json</code>. Serve this folder over HTTP '+
+      '(e.g. <code>python3 -m http.server</code>) rather than opening the file directly.</div>';
+    return;
+  }
+  renderCards();
+  renderCodes();
+  renderInstTabs();
+  wireResTabs();
+  renderForm(DATA.instruments[0]);
+}
+boot();
+</script>
+</body>
+</html>

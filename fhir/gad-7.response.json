@@ -1,0 +1,116 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "qr-gad-7-example",
+  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json|1.0.0",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/example",
+    "display": "Example Patient"
+  },
+  "authored": "2026-06-09T09:30:00-05:00",
+  "source": {
+    "reference": "Patient/example"
+  },
+  "item": [
+    {
+      "linkId": "69725-0",
+      "text": "Feeling nervous, anxious, or on edge",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6570-1",
+            "display": "More than half the days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "68509-9",
+      "text": "Not being able to stop or control worrying",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6569-3",
+            "display": "Several days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "69733-4",
+      "text": "Worrying too much about different things",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6570-1",
+            "display": "More than half the days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "69734-2",
+      "text": "Trouble relaxing",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6569-3",
+            "display": "Several days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "69735-9",
+      "text": "Being so restless that it is hard to sit still",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6568-5",
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "69689-8",
+      "text": "Becoming easily annoyed or irritable",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6569-3",
+            "display": "Several days"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "69736-7",
+      "text": "Feeling afraid, as if something awful might happen",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6568-5",
+            "display": "Not at all"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "70274-6",
+      "text": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+      "answer": [
+        {
+          "valueInteger": 7
+        }
+      ]
+    }
+  ]
+}

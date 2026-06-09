@@ -1,0 +1,218 @@
+{
+  "resourceType": "Bundle",
+  "id": "peg-3-example",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "peg-3",
+        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json",
+        "version": "1.0.0",
+        "name": "PEG_3",
+        "title": "Pain, Enjoyment of life, General activity (PEG)",
+        "status": "active",
+        "experimental": true,
+        "date": "2026-06-09",
+        "publisher": "Kill the Clipboard \u2014 starter set",
+        "subjectType": [
+          "Patient"
+        ],
+        "code": [
+          {
+            "system": "http://loinc.org",
+            "code": "91148-7",
+            "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
+          }
+        ],
+        "copyright": "The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
+        "item": [
+          {
+            "linkId": "lead",
+            "text": "0 = no pain / does not interfere \u2026 10 = pain as bad as you can imagine / completely interferes",
+            "type": "display"
+          },
+          {
+            "linkId": "75893-8",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "75893-8",
+                "display": "What number best describes your pain on average in the past week?"
+              }
+            ],
+            "text": "What number best describes your pain on average in the past week?",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "91145-3",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "91145-3",
+                "display": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?"
+              }
+            ],
+            "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "91146-1",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "91146-1",
+                "display": "What number best describes how, during the past week, pain has interfered with your general activity?"
+              }
+            ],
+            "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "91147-9",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "91147-9",
+                "display": "Mean score [PEG]"
+              }
+            ],
+            "text": "Mean score [PEG]",
+            "type": "decimal",
+            "readOnly": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:qr-peg-3",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "qr-peg-3-example",
+        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json|1.0.0",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "authored": "2026-06-09T09:30:00-05:00",
+        "source": {
+          "reference": "Patient/example"
+        },
+        "item": [
+          {
+            "linkId": "75893-8",
+            "text": "What number best describes your pain on average in the past week?",
+            "answer": [
+              {
+                "valueInteger": 6
+              }
+            ]
+          },
+          {
+            "linkId": "91145-3",
+            "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
+            "answer": [
+              {
+                "valueInteger": 7
+              }
+            ]
+          },
+          {
+            "linkId": "91146-1",
+            "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
+            "answer": [
+              {
+                "valueInteger": 5
+              }
+            ]
+          },
+          {
+            "linkId": "91147-9",
+            "text": "Mean score [PEG]",
+            "answer": [
+              {
+                "valueDecimal": 6.0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-peg-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-peg-3-score-example",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "91147-9",
+              "display": "Mean score [PEG]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "effectiveDateTime": "2026-06-09T09:30:00-05:00",
+        "valueQuantity": {
+          "value": 6.0,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/qr-peg-3-example"
+          }
+        ]
+      }
+    }
+  ]
+}

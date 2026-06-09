@@ -1,0 +1,106 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "qr-esas-r-example",
+  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json|1.0.0",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/example",
+    "display": "Example Patient"
+  },
+  "authored": "2026-06-09T09:30:00-05:00",
+  "source": {
+    "reference": "Patient/example"
+  },
+  "item": [
+    {
+      "linkId": "112494-0",
+      "text": "Pain",
+      "answer": [
+        {
+          "valueInteger": 4
+        }
+      ]
+    },
+    {
+      "linkId": "112495-7",
+      "text": "Tiredness (lack of energy)",
+      "answer": [
+        {
+          "valueInteger": 7
+        }
+      ]
+    },
+    {
+      "linkId": "112496-5",
+      "text": "Drowsiness (feeling sleepy)",
+      "answer": [
+        {
+          "valueInteger": 3
+        }
+      ]
+    },
+    {
+      "linkId": "112497-3",
+      "text": "Nausea",
+      "answer": [
+        {
+          "valueInteger": 2
+        }
+      ]
+    },
+    {
+      "linkId": "112498-1",
+      "text": "Lack of appetite",
+      "answer": [
+        {
+          "valueInteger": 5
+        }
+      ]
+    },
+    {
+      "linkId": "112499-9",
+      "text": "Shortness of breath",
+      "answer": [
+        {
+          "valueInteger": 5
+        }
+      ]
+    },
+    {
+      "linkId": "112500-4",
+      "text": "Depression (feeling sad)",
+      "answer": [
+        {
+          "valueInteger": 3
+        }
+      ]
+    },
+    {
+      "linkId": "112501-2",
+      "text": "Anxiety (feeling nervous)",
+      "answer": [
+        {
+          "valueInteger": 4
+        }
+      ]
+    },
+    {
+      "linkId": "112502-0",
+      "text": "Wellbeing (how you feel overall)",
+      "answer": [
+        {
+          "valueInteger": 4
+        }
+      ]
+    },
+    {
+      "linkId": "112493-2",
+      "text": "Total score [Edmonton Symptom Assessment System]",
+      "answer": [
+        {
+          "valueInteger": 37
+        }
+      ]
+    }
+  ]
+}

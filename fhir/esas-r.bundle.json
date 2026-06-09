@@ -1,0 +1,404 @@
+{
+  "resourceType": "Bundle",
+  "id": "esas-r-example",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "esas-r",
+        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+        "version": "1.0.0",
+        "name": "ESAS_r",
+        "title": "Edmonton Symptom Assessment System (revised)",
+        "status": "active",
+        "experimental": true,
+        "date": "2026-06-09",
+        "publisher": "Kill the Clipboard \u2014 starter set",
+        "subjectType": [
+          "Patient"
+        ],
+        "code": [
+          {
+            "system": "http://loinc.org",
+            "code": "112503-8",
+            "display": "Edmonton Symptom Assessment System [Edmonton Symptom Assessment System]"
+          }
+        ],
+        "copyright": "ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
+        "item": [
+          {
+            "linkId": "lead",
+            "text": "Please rate each symptom right now: 0 = no symptom \u2026 10 = worst possible symptom",
+            "type": "display"
+          },
+          {
+            "linkId": "112494-0",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112494-0",
+                "display": "Pain"
+              }
+            ],
+            "text": "Pain",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112495-7",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112495-7",
+                "display": "Tiredness (lack of energy)"
+              }
+            ],
+            "text": "Tiredness (lack of energy)",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112496-5",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112496-5",
+                "display": "Drowsiness (feeling sleepy)"
+              }
+            ],
+            "text": "Drowsiness (feeling sleepy)",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112497-3",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112497-3",
+                "display": "Nausea"
+              }
+            ],
+            "text": "Nausea",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112498-1",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112498-1",
+                "display": "Lack of appetite"
+              }
+            ],
+            "text": "Lack of appetite",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112499-9",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112499-9",
+                "display": "Shortness of breath"
+              }
+            ],
+            "text": "Shortness of breath",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112500-4",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112500-4",
+                "display": "Depression (feeling sad)"
+              }
+            ],
+            "text": "Depression (feeling sad)",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112501-2",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112501-2",
+                "display": "Anxiety (feeling nervous)"
+              }
+            ],
+            "text": "Anxiety (feeling nervous)",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112502-0",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112502-0",
+                "display": "Wellbeing (how you feel overall)"
+              }
+            ],
+            "text": "Wellbeing (how you feel overall)",
+            "type": "integer",
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
+                "valueInteger": 0
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
+                "valueInteger": 10
+              }
+            ]
+          },
+          {
+            "linkId": "112493-2",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "112493-2",
+                "display": "Total score [Edmonton Symptom Assessment System]"
+              }
+            ],
+            "text": "Total score [Edmonton Symptom Assessment System]",
+            "type": "integer",
+            "readOnly": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:qr-esas-r",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "qr-esas-r-example",
+        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json|1.0.0",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "authored": "2026-06-09T09:30:00-05:00",
+        "source": {
+          "reference": "Patient/example"
+        },
+        "item": [
+          {
+            "linkId": "112494-0",
+            "text": "Pain",
+            "answer": [
+              {
+                "valueInteger": 4
+              }
+            ]
+          },
+          {
+            "linkId": "112495-7",
+            "text": "Tiredness (lack of energy)",
+            "answer": [
+              {
+                "valueInteger": 7
+              }
+            ]
+          },
+          {
+            "linkId": "112496-5",
+            "text": "Drowsiness (feeling sleepy)",
+            "answer": [
+              {
+                "valueInteger": 3
+              }
+            ]
+          },
+          {
+            "linkId": "112497-3",
+            "text": "Nausea",
+            "answer": [
+              {
+                "valueInteger": 2
+              }
+            ]
+          },
+          {
+            "linkId": "112498-1",
+            "text": "Lack of appetite",
+            "answer": [
+              {
+                "valueInteger": 5
+              }
+            ]
+          },
+          {
+            "linkId": "112499-9",
+            "text": "Shortness of breath",
+            "answer": [
+              {
+                "valueInteger": 5
+              }
+            ]
+          },
+          {
+            "linkId": "112500-4",
+            "text": "Depression (feeling sad)",
+            "answer": [
+              {
+                "valueInteger": 3
+              }
+            ]
+          },
+          {
+            "linkId": "112501-2",
+            "text": "Anxiety (feeling nervous)",
+            "answer": [
+              {
+                "valueInteger": 4
+              }
+            ]
+          },
+          {
+            "linkId": "112502-0",
+            "text": "Wellbeing (how you feel overall)",
+            "answer": [
+              {
+                "valueInteger": 4
+              }
+            ]
+          },
+          {
+            "linkId": "112493-2",
+            "text": "Total score [Edmonton Symptom Assessment System]",
+            "answer": [
+              {
+                "valueInteger": 37
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-esas-r",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-esas-r-score-example",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "112493-2",
+              "display": "Total score [Edmonton Symptom Assessment System]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "effectiveDateTime": "2026-06-09T09:30:00-05:00",
+        "valueQuantity": {
+          "value": 37,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/qr-esas-r-example"
+          }
+        ]
+      }
+    }
+  ]
+}

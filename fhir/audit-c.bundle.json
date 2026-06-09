@@ -1,0 +1,396 @@
+{
+  "resourceType": "Bundle",
+  "id": "audit-c-example",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "audit-c",
+        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+        "version": "1.0.0",
+        "name": "AUDIT_C",
+        "title": "Alcohol Use Disorders Identification Test - Consumption (AUDIT-C)",
+        "status": "active",
+        "experimental": true,
+        "date": "2026-06-09",
+        "publisher": "Kill the Clipboard \u2014 starter set",
+        "subjectType": [
+          "Patient"
+        ],
+        "code": [
+          {
+            "system": "http://loinc.org",
+            "code": "72109-2",
+            "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
+          }
+        ],
+        "copyright": "The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
+        "item": [
+          {
+            "linkId": "68518-0",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "68518-0",
+                "display": "How often do you have a drink containing alcohol?"
+              }
+            ],
+            "text": "How often do you have a drink containing alcohol?",
+            "type": "choice",
+            "answerOption": [
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6270-8",
+                  "display": "Never"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18926-8",
+                  "display": "Monthly or less"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18927-6",
+                  "display": "2-4 times a month"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18928-4",
+                  "display": "2-3 times a week"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18929-2",
+                  "display": "4 or more times a week"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "68519-8",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "68519-8",
+                "display": "How many standard drinks containing alcohol do you have on a typical day when drinking?"
+              }
+            ],
+            "text": "How many standard drinks containing alcohol do you have on a typical day when drinking?",
+            "type": "choice",
+            "answerOption": [
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA15694-5",
+                  "display": "1 or 2"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA15695-2",
+                  "display": "3 or 4"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18930-0",
+                  "display": "5 or 6"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18931-8",
+                  "display": "7 to 9"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18932-6",
+                  "display": "10 or more"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "68520-6",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "68520-6",
+                "display": "How often do you have six or more drinks on one occasion?"
+              }
+            ],
+            "text": "How often do you have six or more drinks on one occasion?",
+            "type": "choice",
+            "answerOption": [
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6270-8",
+                  "display": "Never"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18933-4",
+                  "display": "Less than monthly"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18876-5",
+                  "display": "Monthly"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18891-4",
+                  "display": "Weekly"
+                }
+              },
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ],
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18934-2",
+                  "display": "Daily or almost daily"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "75626-2",
+            "code": [
+              {
+                "system": "http://loinc.org",
+                "code": "75626-2",
+                "display": "Total score [AUDIT-C]"
+              }
+            ],
+            "text": "Total score [AUDIT-C]",
+            "type": "integer",
+            "readOnly": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:qr-audit-c",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "qr-audit-c-example",
+        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json|1.0.0",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "authored": "2026-06-09T09:30:00-05:00",
+        "source": {
+          "reference": "Patient/example"
+        },
+        "item": [
+          {
+            "linkId": "68518-0",
+            "text": "How often do you have a drink containing alcohol?",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA18926-8",
+                  "display": "Monthly or less"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "68519-8",
+            "text": "How many standard drinks containing alcohol do you have on a typical day when drinking?",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA15694-5",
+                  "display": "1 or 2"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "68520-6",
+            "text": "How often do you have six or more drinks on one occasion?",
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6270-8",
+                  "display": "Never"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "75626-2",
+            "text": "Total score [AUDIT-C]",
+            "answer": [
+              {
+                "valueInteger": 1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-audit-c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-audit-c-score-example",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "75626-2",
+              "display": "Total score [AUDIT-C]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/example",
+          "display": "Example Patient"
+        },
+        "effectiveDateTime": "2026-06-09T09:30:00-05:00",
+        "valueQuantity": {
+          "value": 1,
+          "unit": "{score}",
+          "system": "http://unitsofmeasure.org",
+          "code": "{score}"
+        },
+        "derivedFrom": [
+          {
+            "reference": "QuestionnaireResponse/qr-audit-c-example"
+          }
+        ]
+      }
+    }
+  ]
+}
