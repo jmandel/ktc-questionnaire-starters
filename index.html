@@ -123,6 +123,9 @@ section.alt{background:var(--bg2)}
 .step p{margin:0;color:var(--ink-2);font-size:.97rem}
 .step .then{margin-top:8px;display:inline-block;font-size:.86rem;font-weight:600;color:var(--brand-ink);
   background:color-mix(in srgb,var(--brand) 10%,transparent);padding:4px 10px;border-radius:8px}
+.flow-label{font-size:.76rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin:10px 2px 0}
+.flow-label:first-child{margin-top:0}
 
 /* ---- model / stages ---- */
 .stages{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
@@ -446,6 +449,7 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
         slowly turning back into a clipboard.</p>
     </div>
     <div class="flow">
+      <div class="flow-label">Decide whether to ask</div>
       <div class="step"><div class="num">1</div><div>
         <h4>Can this be retrieved as USCDI / US&nbsp;Core data?</h4>
         <p>Patient, Medication, AllergyIntolerance, Condition, Observation, Procedure, Encounter, Coverage…</p>
@@ -456,20 +460,22 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
         <p>Reuse it when it is. Ask the patient only when it's missing, stale, or due.</p>
         <span class="then">If no → ask, using "due / missing / stale" logic</span>
       </div></div>
+      <div class="flow-label">Handle the answer</div>
       <div class="step"><div class="num">3</div><div>
         <h4>Does exact wording, answer set, or scoring matter?</h4>
         <p>Standardized instruments depend on phrasing and a defined response scale.</p>
-        <span class="then">If yes → use Questionnaire + QuestionnaireResponse</span>
+        <span class="then">If yes → the patient's app submits a FHIR QuestionnaireResponse</span>
       </div></div>
       <div class="step"><div class="num">4</div><div>
-        <h4>Does the answer need to be searchable or trendable?</h4>
+        <h4>Does the score need to be findable or trendable in the chart?</h4>
         <p>Scores feed dashboards, quality measures, CDS, and longitudinal display.</p>
-        <span class="then">If yes → extract a LOINC-coded Observation</span>
+        <span class="then">If yes → the EHR derives a LOINC-coded Observation from it</span>
       </div></div>
       <div class="step"><div class="num">5</div><div>
-        <h4>Does the answer require action?</h4>
-        <p>A result that demands response can't just disappear into a data store.</p>
-        <span class="then">If yes → create local workflow: Task, alert, referral, safety follow-up</span>
+        <h4>So &mdash; QuestionnaireResponse or Observation? Both.</h4>
+        <p>Not one or the other. The response is what the patient's app submits; the Observation is what
+          the EHR derives and files. They serve different jobs, so you keep both.</p>
+        <span class="then">QuestionnaireResponse = the stable, app-submitted surface&nbsp;·&nbsp;Observation = the EHR-derived, fileable artifact</span>
       </div></div>
     </div>
   </div>
