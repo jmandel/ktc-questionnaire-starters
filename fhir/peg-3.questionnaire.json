@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "peg-3",
-  "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json",
+  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
   "version": "1.0.0",
   "name": "PEG_3",
   "title": "Pain, Enjoyment of life, General activity (PEG)",

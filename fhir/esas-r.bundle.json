@@ -4,11 +4,11 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+      "fullUrl": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
       "resource": {
         "resourceType": "Questionnaire",
         "id": "esas-r",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
         "version": "1.0.0",
         "name": "ESAS_r",
         "title": "Edmonton Symptom Assessment System (revised)",
@@ -252,7 +252,7 @@
       "resource": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-esas-r-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",

@@ -4,11 +4,11 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+      "fullUrl": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
       "resource": {
         "resourceType": "Questionnaire",
         "id": "audit-c",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
         "version": "1.0.0",
         "name": "AUDIT_C",
         "title": "Alcohol Use Disorders Identification Test - Consumption (AUDIT-C)",
@@ -286,7 +286,7 @@
       "resource": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-audit-c-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",

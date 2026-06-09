@@ -4,11 +4,11 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json",
+      "fullUrl": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
       "resource": {
         "resourceType": "Questionnaire",
         "id": "gad-7",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
         "version": "1.0.0",
         "name": "GAD_7",
         "title": "Generalized Anxiety Disorder-7 (GAD-7)",
@@ -516,7 +516,7 @@
       "resource": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-gad-7-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",

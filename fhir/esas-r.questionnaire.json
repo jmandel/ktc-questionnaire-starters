@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "esas-r",
-  "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
   "version": "1.0.0",
   "name": "ESAS_r",
   "title": "Edmonton Symptom Assessment System (revised)",

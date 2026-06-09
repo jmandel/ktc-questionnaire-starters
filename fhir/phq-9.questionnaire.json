@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "phq-9",
-  "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/phq-9.questionnaire.json",
+  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9",
   "version": "1.0.0",
   "name": "PHQ_9",
   "title": "Patient Health Questionnaire-9 (PHQ-9)",

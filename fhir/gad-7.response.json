@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-gad-7-example",
-  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json|1.0.0",
+  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7|1.0.0",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",

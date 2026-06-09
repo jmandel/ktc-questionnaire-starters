@@ -33,7 +33,7 @@
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:auto;scroll-padding-top:80px}
 body{
   margin:0;background:var(--bg);color:var(--ink);
   font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -52,16 +52,19 @@ code,pre{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospac
 /* ---- nav ---- */
 header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-inner{display:flex;align-items:center;gap:20px;height:64px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:1.02rem;color:var(--ink)}
+.nav-inner{display:flex;align-items:center;gap:16px;height:62px;flex-wrap:nowrap}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-.03em;font-size:.98rem;color:var(--ink);white-space:nowrap}
 .brand:hover{text-decoration:none}
+.brand .bt-long{display:inline}
+.brand .bt-short{display:none}
 .brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--accent));
-  display:grid;place-items:center;color:#fff;font-size:15px;box-shadow:var(--shadow)}
-.nav-links{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
-.nav-links a{color:var(--ink-2);font-size:.9rem;font-weight:500;padding:7px 11px;border-radius:8px}
+  display:grid;place-items:center;color:#fff;font-size:15px;box-shadow:var(--shadow);flex:none}
+.nav-links{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap;align-items:center}
+.nav-links a{color:var(--ink-2);font-size:.86rem;font-weight:500;padding:6px 9px;border-radius:8px;white-space:nowrap}
 .nav-links a:hover{background:var(--surface-2);text-decoration:none;color:var(--ink)}
 .nav-links a.ghub{color:var(--brand);font-weight:600}
-@media(max-width:820px){.nav-links a:not(.ghub){display:none}}
+@media(max-width:1040px){.brand .bt-long{display:none}.brand .bt-short{display:inline}}
+@media(max-width:860px){.nav-links a:not(.ghub){display:none}}
 
 /* ---- hero ---- */
 .hero{position:relative;overflow:hidden;padding:74px 0 56px;
@@ -121,6 +124,55 @@ section.alt{background:var(--bg2)}
 .step .then{margin-top:8px;display:inline-block;font-size:.86rem;font-weight:600;color:var(--brand-ink);
   background:color-mix(in srgb,var(--brand) 10%,transparent);padding:4px 10px;border-radius:8px}
 
+/* ---- model / stages ---- */
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+@media(max-width:880px){.stages{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.stages{grid-template-columns:1fr}}
+.stage{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.stage .sn{display:flex;align-items:center;gap:9px;margin-bottom:8px}
+.stage .sn .b{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:.92rem;
+  color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));flex:none}
+.stage .sn .verb{font-weight:800;letter-spacing:-.02em;font-size:1.02rem}
+.stage.last .sn .b{background:linear-gradient(135deg,var(--accent),#d8602b)}
+.stage.last{border-top:3px solid var(--accent)}
+.stage p{font-size:.9rem;color:var(--ink-2);margin:0}
+.stage .tagm{margin-top:auto;padding-top:12px}
+.stage .tagm span{font-size:.72rem;font-weight:600;color:var(--brand);background:color-mix(in srgb,var(--brand) 10%,transparent);
+  padding:3px 8px;border-radius:6px}
+.stage.last .tagm span{color:var(--accent);background:var(--accent-soft)}
+.milestones{display:flex;gap:0;flex-wrap:wrap;margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.ms{flex:1;min-width:200px;padding:16px 20px;border-right:1px solid var(--line)}
+.ms:last-child{border-right:none}
+.ms .when{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ms .what{font-size:.92rem;color:var(--ink);font-weight:500;margin-top:2px}
+.ms.now{background:color-mix(in srgb,var(--accent) 9%,var(--surface))}
+.ms.now .when{color:var(--accent)}
+.modelnote{margin-top:22px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;box-shadow:var(--shadow)}
+.modelnote h3{margin-bottom:6px}
+.modelnote p{margin:0;color:var(--ink-2)}
+.statuspills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.statuspills span{font-size:.76rem;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
+.sp-f{background:var(--good-soft);color:var(--good)}.sp-p{background:var(--accent-soft);color:var(--accent)}
+.sp-d{background:var(--surface-2);color:var(--muted)}
+
+/* ---- methodology funnel ---- */
+.filters{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.filter{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
+.filter h4{display:flex;align-items:center;gap:10px;font-size:1rem;margin-bottom:6px}
+.filter h4 .ck{width:24px;height:24px;border-radius:7px;background:var(--good-soft);color:var(--good);display:grid;
+  place-items:center;font-weight:800;flex:none}
+.filter p{font-size:.9rem;color:var(--ink-2);margin:0}
+.funnel-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px;padding:18px 22px;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);font-weight:600}
+.funnel-line .a{color:var(--muted)}
+.funnel-line .from{color:var(--ink-2)}
+.funnel-line .to{color:var(--brand);font-size:1.1rem}
+.deferred{margin-top:18px;font-size:.9rem;color:var(--muted)}
+.deferred b{color:var(--ink-2)}
+
 /* ---- instrument cards ---- */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
 .icard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
@@ -159,15 +211,18 @@ td .sc{font-weight:700;color:var(--brand)}
 .arrow{display:grid;place-items:center;color:var(--muted);font-size:1.6rem;font-weight:700}
 
 /* ---- explorer ---- */
-.explorer{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden}
-.exp-tabs{display:flex;gap:4px;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.explorer{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:visible}
+.exp-tabs{display:flex;gap:4px;padding:10px 12px;background:var(--surface-2);border-bottom:1px solid var(--line);
+  flex-wrap:wrap;border-radius:var(--radius) var(--radius) 0 0}
 .exp-tabs button{appearance:none;border:1px solid transparent;background:transparent;color:var(--ink-2);
   font-family:inherit;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:9px;cursor:pointer}
 .exp-tabs button:hover{background:color-mix(in srgb,var(--brand) 8%,transparent)}
 .exp-tabs button.active{background:var(--brand);color:#fff;box-shadow:var(--shadow)}
-.exp-body{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px}
+.exp-body{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start}
+.exp-body>*{min-width:0}
 @media(max-width:900px){.exp-body{grid-template-columns:1fr}}
 .exp-form{padding:24px;border-right:1px solid var(--line)}
+@media(max-width:900px){.exp-form{border-right:none;border-bottom:1px solid var(--line)}}
 .exp-form .lead{font-size:.92rem;color:var(--muted);font-style:italic;margin-bottom:18px}
 .q{padding:14px 0;border-bottom:1px solid var(--line)}
 .q:last-child{border-bottom:none}
@@ -179,8 +234,9 @@ td .sc{font-weight:700;color:var(--brand)}
   cursor:pointer;font-size:.9rem;transition:all .1s ease}
 .opt:hover{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 5%,transparent)}
 .opt.sel{border-color:var(--brand);background:color-mix(in srgb,var(--brand) 12%,transparent);font-weight:600}
-.opt input{accent-color:var(--brand)}
-.opt .osc{margin-left:auto;font-size:.74rem;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace}
+.opt input{accent-color:var(--brand);flex:none}
+.opt>span:not(.osc){flex:1;min-width:0}
+.opt .osc{margin-left:auto;flex:none;font-size:.74rem;font-weight:700;color:var(--muted);font-family:'JetBrains Mono',monospace}
 .opt.sel .osc{color:var(--brand)}
 .scale{display:flex;flex-wrap:wrap;gap:6px}
 .scale button{width:40px;height:40px;border-radius:9px;border:1px solid var(--line);background:var(--surface);
@@ -189,27 +245,34 @@ td .sc{font-weight:700;color:var(--brand)}
 .scale button.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
 .scale .ends{width:100%;display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:2px}
 
-.exp-out{display:flex;flex-direction:column;background:var(--surface-2)}
-.score-card{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:20px;background:var(--surface)}
-.score-num{font-size:2.6rem;font-weight:800;line-height:1;color:var(--brand);font-family:'JetBrains Mono',monospace}
-.score-meta{flex:1}
+.exp-out{display:flex;flex-direction:column;background:var(--surface-2);
+  position:sticky;top:72px;align-self:start;max-height:calc(100vh - 88px);
+  border-radius:0 var(--radius) var(--radius) 0}
+@media(max-width:900px){.exp-out{position:static;max-height:none;border-radius:0 0 var(--radius) var(--radius)}}
+.score-card{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;background:var(--surface);flex:none}
+.score-num{font-size:2.4rem;font-weight:800;line-height:1;color:var(--brand);font-family:'JetBrains Mono',monospace;flex:none}
+.score-meta{flex:1;min-width:0}
 .score-meta .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
-.score-meta .code{font-family:'JetBrains Mono',monospace;font-size:.84rem;color:var(--ink-2)}
+.score-meta .code{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--ink-2);overflow-wrap:anywhere}
 .flag{margin:0 24px;padding:12px 16px;border-radius:10px;background:var(--warn-soft);color:var(--warn);
   font-size:.86rem;font-weight:500;display:none;align-items:flex-start;gap:10px}
 .flag.show{display:flex}
 .flag::before{content:"⚠";font-size:1.1rem;line-height:1.2}
-.res-tabs{display:flex;gap:4px;padding:12px 16px 0}
+.res-tabs{display:flex;gap:4px;padding:12px 16px 0;flex:none;flex-wrap:wrap}
 .res-tabs button{appearance:none;border:none;background:transparent;color:var(--muted);font-family:inherit;
   font-weight:600;font-size:.82rem;padding:6px 10px;border-radius:7px 7px 0 0;cursor:pointer}
 .res-tabs button.active{color:var(--brand);background:var(--code-bg)}
-.codebox{flex:1;position:relative;margin:0 16px 16px;border-radius:0 10px 10px 10px;overflow:hidden;background:var(--code-bg)}
+.codebox{flex:1 1 auto;min-height:240px;position:relative;margin:0 16px 16px;border-radius:0 10px 10px 10px;overflow:hidden;background:var(--code-bg)}
+@media(max-width:900px){.codebox{flex:none;min-height:0}}
 .codebox .copy{position:absolute;top:10px;right:10px;z-index:2;font-size:.74rem;font-weight:600;padding:5px 10px;
   border-radius:7px;background:rgba(255,255,255,.1);color:#cfe0f1;border:1px solid rgba(255,255,255,.15);cursor:pointer}
 .codebox .copy:hover{background:rgba(255,255,255,.2)}
-pre.code{margin:0;padding:18px;overflow:auto;max-height:420px;font-size:.8rem;line-height:1.55;color:var(--code-ink)}
+pre.code{margin:0;padding:18px;height:100%;overflow:auto;font-size:.8rem;line-height:1.55;color:var(--code-ink);
+  white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:900px){pre.code{height:auto;max-height:62vh}}
 .tok-key{color:#7fd1de}.tok-str{color:#a8e0a0}.tok-num{color:#f2b07a}.tok-bool{color:#e08fb0}.tok-null{color:#9aa7b8}
-.dl-row{padding:0 16px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.dl-row{padding:0 16px 16px;display:flex;gap:8px;flex-wrap:wrap;flex:none;align-items:center}
+.dl-label{font-size:.76rem;font-weight:600;color:var(--muted);margin-right:2px}
 .dl-row a{font-size:.78rem;font-weight:600;padding:6px 11px;border-radius:8px;border:1px solid var(--line);
   background:var(--surface);color:var(--ink-2)}
 .dl-row a:hover{border-color:var(--brand);color:var(--brand);text-decoration:none}
@@ -241,14 +304,15 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top"><span class="dot">✚</span> KTC&nbsp;Questionnaire&nbsp;Starters</a>
+    <a class="brand" href="#top"><span class="dot">✚</span>
+      <span class="bt-long">KTC&nbsp;Questionnaire&nbsp;Starters</span><span class="bt-short">KTC&nbsp;Starters</span></a>
     <nav class="nav-links">
-      <a href="#boundary">The boundary</a>
-      <a href="#rule">Decision rule</a>
-      <a href="#set">Starter set</a>
+      <a href="#model">The model</a>
+      <a href="#boundary">Boundary</a>
+      <a href="#methodology">How we choose</a>
+      <a href="#set">The five</a>
       <a href="#explore">Explore</a>
-      <a href="#codes">LOINC codes</a>
-      <a href="#govern">Governance</a>
+      <a href="#codes">LOINC</a>
       <a class="ghub" href="https://github.com/jmandel/ktc-questionnaire-starters">GitHub ↗</a>
     </nav>
   </div>
@@ -258,16 +322,18 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 <section class="hero" style="border-top:none">
   <div class="wrap">
     <span class="eyebrow">Kill the Clipboard · FHIR Questionnaire</span>
-    <h1>Don't digitize the clipboard. Ask only what the chart can't already answer.</h1>
+    <h1>Patient questionnaires for what the chart doesn't already have.</h1>
     <p class="lede">
-      A small, standards-based starter set of FHIR&nbsp;R4 Questionnaires for high-value,
-      patient-reported information that USCDI / US&nbsp;Core data does <em>not</em> already carry &mdash;
-      with worked QuestionnaireResponse and extracted, LOINC-coded Observation examples you can try live.
+      Kill the Clipboard starts by letting patients <b>share what the chart should already know</b> &mdash;
+      meds, allergies, problems, immunizations &mdash; over a SMART&nbsp;Health&nbsp;Link. This is a small,
+      standards-based set of FHIR&nbsp;R4 Questionnaires for <em>the residual</em>: the patient-reported,
+      scored, visit-specific answers no EHR holds. Worked QuestionnaireResponse and LOINC-coded
+      Observation examples included &mdash; try them live.
     </p>
     <div class="thesis">
-      <b>USCDI first for reusable chart facts.</b> FHIR&nbsp;Questionnaire only when asking the
-      patient is clinically necessary &mdash; current, subjective, scored, episode-specific, or
-      workflow-triggering information.
+      Share what the chart should already have first. Only use a questionnaire when the answer is
+      something no EHR has &mdash; <b>how the patient feels right now, a score, or something specific to
+      today's visit</b> &mdash; not to re-collect what a SMART&nbsp;Health&nbsp;Link already delivered.
     </div>
     <div class="cta">
       <a class="btn btn-primary" href="#explore">Try a live instrument →</a>
@@ -282,15 +348,65 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
   </div>
 </section>
 
-<!-- BOUNDARY -->
-<section id="boundary">
+<!-- MODEL -->
+<section id="model">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">The distinction</div>
-      <h2>USCDI exchange vs. a necessary questionnaire</h2>
-      <p>Most "intake clipboard" content already lives in the chart as structured US&nbsp;Core data.
-        Re-asking for it is the failure mode. Questionnaire earns its place only when the
-        <em>capture event itself</em> matters.</p>
+      <div class="kicker">Where this fits</div>
+      <h2>How questionnaires fit into Kill the Clipboard</h2>
+      <p>Kill the Clipboard makes progress in stages. The patient shares their structured data first.
+        Questionnaires only cover the part no EHR can hand over.</p>
+    </div>
+    <div class="stages">
+      <div class="stage"><div class="sn"><span class="b">1</span><span class="verb">Share</span></div>
+        <p>The patient presents a <b>SMART Health Link</b> (a QR at check-in, or a link pasted ahead of
+          time) — an encrypted FHIR Bundle of their data. No portal login.</p>
+        <div class="tagm"><span>Patient app → QR</span></div></div>
+      <div class="stage"><div class="sn"><span class="b">2</span><span class="verb">Persist</span></div>
+        <p>The EHR files the structured data to the chart, labeled patient-shared: today <b>PAMI</b>
+          (problems, allergies, meds, immunizations), growing toward full US&nbsp;Core — plus any PDFs.</p>
+        <div class="tagm"><span>US Core in the chart</span></div></div>
+      <div class="stage"><div class="sn"><span class="b">3</span><span class="verb">What's covered</span></div>
+        <p>A lot of the clipboard is now in the chart — meds, allergies, problems, immunizations,
+          insurance, and the patient's own narrative. The clinic shouldn't ask for it again.</p>
+        <div class="tagm"><span>Most of the clipboard</span></div></div>
+      <div class="stage last"><div class="sn"><span class="b">4</span><span class="verb">What's left</span></div>
+        <p>What's left is how the patient feels right now, a screening score, how pain affects their
+          week — things no EHR holds. That's what a questionnaire is for.</p>
+        <div class="tagm"><span>The five live here ↓</span></div></div>
+    </div>
+
+    <div class="milestones">
+      <div class="ms"><div class="when">Apr 2026</div><div class="what">Patient-shared <b>PDFs</b> retained in the chart</div></div>
+      <div class="ms"><div class="when">Jul 2026</div><div class="what">Structured <b>PAMI</b> FHIR persisted</div></div>
+      <div class="ms now"><div class="when">Next</div><div class="what">A <b>check-in protocol</b> — the clinic asks; the patient answers</div></div>
+    </div>
+
+    <div class="modelnote">
+      <h3>What comes next: the clinic asks, your app answers</h3>
+      <p>The piece that finishes the job is a check-in protocol where the clinic asks for specific
+        things — records, coverage, and <b>questionnaires, including ones the clinic wrote itself</b> —
+        and the patient's app answers, item by item, reviewed and approved by them. The moment a clinic
+        can ask for a questionnaire, someone has to render it, score it, pull the answers back out, and
+        route any follow-up. These five are a small place to start on that.</p>
+      <div class="statuspills">
+        <span class="sp-f">✓ fulfilled</span>
+        <span class="sp-p">◐ partial</span>
+        <span class="sp-d">— declined</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOUNDARY -->
+<section id="boundary" class="alt"
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">A simple rule of thumb</div>
+      <h2>What to share, and what to ask</h2>
+      <p>Most of what's on an intake clipboard already lives in the chart as structured US&nbsp;Core data.
+        The clinic should pull that in, not ask for it again. Save the questionnaire for the things that
+        only the patient can tell you today.</p>
     </div>
     <div class="boundary">
       <div class="bcard no">
@@ -320,13 +436,13 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 </section>
 
 <!-- RULE -->
-<section id="rule" class="alt">
+<section id="rule">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Implementation rule</div>
       <h2>Five questions to ask before you ask the patient</h2>
-      <p>Apply this test to every candidate field. It keeps a questionnaire library from quietly
-        becoming a digital clipboard.</p>
+      <p>Run through these before adding any question. They're what keeps a set of questionnaires from
+        slowly turning back into a clipboard.</p>
     </div>
     <div class="flow">
       <div class="step"><div class="num">1</div><div>
@@ -358,15 +474,49 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
   </div>
 </section>
 
+<!-- METHODOLOGY -->
+<section id="methodology" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How we choose</div>
+      <h2>How we pick the first few</h2>
+      <p>There are thousands of validated questionnaires out there. The moment clinics can request any of
+        them, there's a lot to build — rendering, scoring, pulling answers back out, handling follow-up.
+        So we start with a few that are easy to get right. Here's what we look for; the five below are the
+        ones that fit so far.</p>
+    </div>
+    <div class="filters">
+      <div class="filter"><h4><span class="ck">✓</span> The chart doesn't already have it</h4>
+        <p>If a SMART Health Link or the chart can already answer it, we don't ask. The questionnaire has
+          to capture something no EHR holds.</p></div>
+      <div class="filter"><h4><span class="ck">✓</span> Clinics already use it</h4>
+        <p>Familiar to clinicians and backed by guidance from USPSTF, CMS, or CDC — not a niche tool.</p></div>
+      <div class="filter"><h4><span class="ck">✓</span> Scoring is simple</h4>
+        <p>A sum or an average. Easy to compute, save as an Observation, and track over time.</p></div>
+      <div class="filter"><h4><span class="ck">✓</span> No licensing in the way</h4>
+        <p>Public domain, or terms that say no permission is needed — so it's safe to show and pass along.</p></div>
+      <div class="filter"><h4><span class="ck">✓</span> It has LOINC codes</h4>
+        <p>The panel, the questions, the answers, and the score all have LOINC codes, so the responses
+          travel between systems. (Every code here is checked against the LOINC 2.82 release.)</p></div>
+      <div class="filter"><h4><span class="ck">✓</span> It shows something new</h4>
+        <p>Between them they cover the range: a short screen, a longer one, a 0–10 scale, a total and an
+          average, many symptoms at once, and a result that needs follow-up.</p></div>
+    </div>
+    <p class="deferred">This isn't a closed list. The same approach works for any other questionnaire a
+      clinic licenses or writes itself. We've left some heavier ones out for now — like C-SSRS or PCL-5,
+      which bring in safety routing or a narrower use — and they can follow the same path later.</p>
+  </div>
+</section>
+
 <!-- STARTER SET -->
 <section id="set">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">The starter set</div>
-      <h2>Five instruments &mdash; a capability demo, not a closed catalog</h2>
-      <p>Widely recognized in U.S. clinical practice, simple to score, and diverse enough to prove
-        the general pattern: render a Questionnaire, collect a Response, preserve provenance, extract
-        Observations, route follow-up.</p>
+      <h2>The five we're starting with</h2>
+      <p>Each one is familiar in U.S. practice and simple to score. Between them they show the whole
+        pattern: show a Questionnaire, collect a Response, keep the record of what was asked, pull out an
+        Observation, and route any follow-up.</p>
     </div>
     <div class="cards" id="cards"><div class="loading">Loading instruments…</div></div>
   </div>
@@ -376,8 +526,8 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 <section class="alt">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Why these five</div>
-      <h2>What each instrument demonstrates</h2>
+      <div class="kicker">At a glance</div>
+      <h2>What each one shows</h2>
     </div>
     <div class="tablewrap">
       <table>
@@ -404,10 +554,10 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Live examples</div>
-      <h2>Fill an instrument &mdash; watch the FHIR build itself</h2>
+      <h2>Fill one out and watch the FHIR get built</h2>
       <p>Pick an instrument, answer it, and see the score compute live alongside the
         <span class="mono">QuestionnaireResponse</span> and the extracted, LOINC-coded
-        <span class="mono">Observation</span>. Every byte is downloadable below.</p>
+        <span class="mono">Observation</span>. Open any of the files below to see it in full and download it.</p>
     </div>
     <div class="explorer" id="explorer">
       <div class="exp-tabs" id="instTabs"></div>
@@ -447,9 +597,10 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">The FHIR pattern</div>
-      <h2>Three resources, one provenance chain</h2>
+      <h2>The three FHIR resources</h2>
       <p>In FHIR&nbsp;R4 the <b>Questionnaire</b> carries the item codes; the <b>QuestionnaireResponse</b>
-        records answers by <code>linkId</code>; an extracted <b>Observation</b> makes the score searchable.</p>
+        records the answers by <code>linkId</code>; and an extracted <b>Observation</b> makes the score
+        easy to find and track.</p>
     </div>
     <div class="pattern">
       <div class="pnode">
@@ -498,8 +649,8 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 <section id="govern" class="alt">
   <div class="wrap">
     <div class="sec-head">
-      <div class="kicker">Governance guardrails</div>
-      <h2>Keep it a questionnaire library, not a clipboard</h2>
+      <div class="kicker">Guardrails</div>
+      <h2>How to keep this from becoming a clipboard again</h2>
     </div>
     <div class="guards">
       <div class="guard"><div class="g-ic">🚫</div><h4>No re-asking USCDI facts</h4>
@@ -522,12 +673,13 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
 <section>
   <div class="wrap">
     <div class="callout">
-      <p style="margin:0">“We are not standardizing the clipboard. We are standardizing the ability to ask
-        <b>necessary, patient-reported, scored, current questions</b> when USCDI data is not enough.”</p>
+      <p style="margin:0">The goal isn't to digitize the clipboard. It's to give clinics a standard way to
+        ask <b>the few questions only the patient can answer</b> — and to get those answers back as data,
+        not paper.</p>
       <p style="margin:14px 0 0;font-size:.95rem;color:var(--ink-2)">
-        Any appropriately licensed or locally authored instrument can follow the same pattern:
-        a FHIR&nbsp;Questionnaire, answered as a QuestionnaireResponse, extracted into coded Observations
-        where needed, and wired to local follow-up.</p>
+        Any questionnaire a clinic licenses or writes can work the same way: a FHIR&nbsp;Questionnaire,
+        answered as a QuestionnaireResponse, turned into coded Observations where it's useful, and wired
+        to whatever follow-up the clinic needs.</p>
     </div>
   </div>
 </section>
@@ -743,11 +895,12 @@ function currentResource(inst){
 function renderRes(inst){
   document.getElementById('codeOut').innerHTML = hl(currentResource(inst));
   const dl=document.getElementById('dlRow');
-  dl.innerHTML=`
-    <a href="fhir/${inst.key}.questionnaire.json" download>↓ questionnaire.json</a>
-    <a href="fhir/${inst.key}.response.json" download>↓ response.json</a>
-    <a href="fhir/${inst.key}.observation.json" download>↓ observation.json</a>
-    <a href="fhir/${inst.key}.bundle.json" download>↓ bundle.json</a>`;
+  const v=(kind)=>`view.html?src=fhir/${inst.key}.${kind}.json`;
+  dl.innerHTML=`<span class="dl-label">View &amp; download:</span>
+    <a href="${v('questionnaire')}" target="_blank" rel="noopener">⤢ questionnaire.json</a>
+    <a href="${v('response')}" target="_blank" rel="noopener">⤢ response.json</a>
+    <a href="${v('observation')}" target="_blank" rel="noopener">⤢ observation.json</a>
+    <a href="${v('bundle')}" target="_blank" rel="noopener">⤢ bundle.json</a>`;
 }
 
 function renderInstTabs(){
@@ -769,11 +922,11 @@ function renderInstTabs(){
 function renderCards(){
   const wrap=document.getElementById('cards');
   const meta={
-    'phq-9':{why:'A familiar scored screen with shared answer choices, a total score, and a built-in safety item. Ask it when a current depression screen is due — don\'t recreate historical mental-health data already in the chart.',lic:'No permission required'},
-    'gad-7':{why:'The same multi-item Likert scoring engine as PHQ-9 — anxiety is current patient-reported state, not a static chart fact. Pairs naturally with PHQ.',lic:'No permission required'},
-    'audit-c':{why:'A three-question alcohol screen. Social history may be stale or missing; this captures a fresh, scored risk assessment when one is due.',lic:'Public domain (WHO)'},
-    'peg-3':{why:'The cleanest "USCDI is not enough" example: the chart may show chronic pain, but not how pain interfered with enjoyment of life and activity this week.',lic:'Public domain'},
-    'esas-r':{why:'A multi-symptom patient-reported outcome for oncology, palliative care, and serious-illness monitoring — captures current symptom burden, not intake demographics.',lic:'Public domain w/ acknowledgment'},
+    'phq-9':{why:'A familiar depression screen with shared answer choices, a total score, and a safety question built in. Ask it when a fresh screen is due — the chart won\'t tell you how the patient feels this week.',lic:'No permission required'},
+    'gad-7':{why:'Anxiety screen that scores the same way as PHQ-9, so the same code handles both. How someone feels right now isn\'t something the chart can hand over.',lic:'No permission required'},
+    'audit-c':{why:'A three-question alcohol screen. Social history is often missing or out of date; this gets a fresh, scored answer when one is needed.',lic:'Public domain (WHO)'},
+    'peg-3':{why:'The clearest case for a questionnaire: the chart may say the patient has chronic pain, but not how much it got in the way of their life this week.',lic:'Public domain'},
+    'esas-r':{why:'Rates nine symptoms at once for cancer, palliative, and serious-illness care. It\'s how the patient is doing today, not anything in the demographics.',lic:'Public domain w/ acknowledgment'},
   };
   wrap.innerHTML='';
   DATA.instruments.forEach(inst=>{

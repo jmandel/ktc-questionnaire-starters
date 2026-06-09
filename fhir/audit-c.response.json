@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-audit-c-example",
-  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json|1.0.0",
+  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c|1.0.0",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",

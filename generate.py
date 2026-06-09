@@ -19,7 +19,9 @@ ORDINAL_EXT = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
 QC_EXT = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"
 LOINC = "http://loinc.org"
 UCUM = "http://unitsofmeasure.org"
-BASE = "https://jmandel.github.io/ktc-questionnaire-starters/fhir"
+# Canonical identity for the resources (version-independent identifiers, not file paths).
+SITE = "https://joshuamandel.com/ktc-questionnaire-starters"
+CANON = SITE + "/Questionnaire"
 
 # ---------------------------------------------------------------------------
 # Shared answer lists
@@ -254,7 +256,7 @@ def build_questionnaire(key, inst):
     return {
         "resourceType": "Questionnaire",
         "id": key,
-        "url": f"{BASE}/{key}.questionnaire.json",
+        "url": f"{CANON}/{key}",
         "version": "1.0.0",
         "name": inst["name"].replace("-", "_"),
         "title": inst["title"],
@@ -305,7 +307,7 @@ def build_response(key, inst):
     return {
         "resourceType": "QuestionnaireResponse",
         "id": f"qr-{key}-example",
-        "questionnaire": f"{BASE}/{key}.questionnaire.json|1.0.0",
+        "questionnaire": f"{CANON}/{key}|1.0.0",
         "status": "completed",
         "subject": {"reference": "Patient/example", "display": "Example Patient"},
         "authored": AUTHORED,
@@ -346,7 +348,7 @@ def build_bundle(key, q, r, o):
         "id": f"{key}-example",
         "type": "collection",
         "entry": [
-            {"fullUrl": f"{BASE}/{key}.questionnaire.json", "resource": q},
+            {"fullUrl": f"{CANON}/{key}", "resource": q},
             {"fullUrl": f"urn:uuid:qr-{key}", "resource": r},
             {"fullUrl": f"urn:uuid:obs-{key}", "resource": o},
         ],

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FHIR artifact viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f6f8fb;--surface:#fff;--surface-2:#f3f6fa;--ink:#0e1b2b;--ink-2:#3a4a5e;--muted:#6b7c91;
+  --line:#e2e8f1;--brand:#0d7d8c;--brand-2:#0a5f6b;--code-bg:#0f1b2a;--code-ink:#d8e3f0;
+  --radius:14px;--shadow:0 1px 2px rgba(14,27,43,.06),0 8px 30px rgba(14,27,43,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#0a131e;--surface:#101c2c;--surface-2:#16263a;--ink:#eaf1f8;--ink-2:#b9c8d8;--muted:#7e91a6;
+    --line:#1f3247;--brand:#3fb4c4;--brand-2:#65cdd9;--code-bg:#0a131e;--code-ink:#cfe0f1;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 34px rgba(0,0,0,.45);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.bar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line)}
+.bar-in{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.crumb{font-size:.86rem;color:var(--muted)}
+.crumb a{font-weight:500}
+.title{font-weight:800;letter-spacing:-.02em;font-size:1.05rem;display:flex;align-items:center;gap:10px;min-width:0}
+.rt{font-family:'JetBrains Mono',monospace;font-size:.74rem;font-weight:600;color:var(--brand);
+  background:color-mix(in srgb,var(--brand) 12%,transparent);padding:3px 8px;border-radius:7px;white-space:nowrap}
+.actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-weight:600;font-size:.86rem;
+  padding:9px 15px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  cursor:pointer;box-shadow:var(--shadow)}
+.btn:hover{text-decoration:none;border-color:var(--brand);color:var(--brand)}
+.btn.primary{background:var(--brand);color:#fff;border-color:transparent}
+.btn.primary:hover{background:var(--brand-2);color:#042b31}
+main{max-width:980px;margin:0 auto;padding:22px 20px 60px}
+.fname{font-family:'JetBrains Mono',monospace;font-size:.84rem;color:var(--ink-2);margin-bottom:12px;word-break:break-all}
+.codewrap{background:var(--code-bg);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+pre{margin:0;padding:22px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:.84rem;line-height:1.6;
+  color:var(--code-ink);white-space:pre-wrap;overflow-wrap:anywhere}
+.tok-key{color:#7fd1de}.tok-str{color:#a8e0a0}.tok-num{color:#f2b07a}.tok-bool{color:#e08fb0}.tok-null{color:#9aa7b8}
+.msg{padding:40px;text-align:center;color:var(--muted)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);
+  padding:10px 18px;border-radius:10px;font-size:.86rem;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <div class="title"><span class="rt" id="rt">FHIR</span><span id="fileTitle">artifact</span></div>
+  <div class="actions">
+    <button class="btn" id="copyBtn">Copy</button>
+    <a class="btn" id="rawBtn" target="_blank" rel="noopener">Raw</a>
+    <button class="btn primary" id="dlBtn">↓ Download</button>
+  </div>
+</div></div>
+<main>
+  <div class="crumb"><a href="index.html">← KTC Questionnaire Starters</a></div>
+  <div class="fname" id="fname"></div>
+  <div class="codewrap"><pre id="code"><span class="msg">Loading…</span></pre></div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+function hl(obj){
+  let s = JSON.stringify(obj, null, 2);
+  s = s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return s.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(\.\d+)?([eE][+\-]?\d+)?)/g,
+    (m)=>{let c='tok-num';
+      if(/^"/.test(m)) c=/:$/.test(m)?'tok-key':'tok-str';
+      else if(/true|false/.test(m)) c='tok-bool';
+      else if(/null/.test(m)) c='tok-null';
+      return '<span class="'+c+'">'+m+'</span>';});
+}
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1400);}
+function qp(n){return new URLSearchParams(location.search).get(n);}
+
+async function boot(){
+  const src = qp('src');
+  const code = document.getElementById('code');
+  if(!src || !/^fhir\/[A-Za-z0-9._-]+\.json$/.test(src)){
+    code.innerHTML='<span class="msg">Missing or invalid <code>?src=</code> parameter.</span>';
+    return;
+  }
+  const fname = src.split('/').pop();
+  document.getElementById('fname').textContent = src;
+  document.getElementById('rawBtn').href = src;
+  let text, obj;
+  try{
+    const res = await fetch(src,{cache:'no-cache'});
+    if(!res.ok) throw new Error(res.status);
+    text = await res.text();
+    obj = JSON.parse(text);
+  }catch(e){
+    code.innerHTML='<span class="msg">Could not load <code>'+src+'</code>. Serve this folder over HTTP.</span>';
+    return;
+  }
+  text = JSON.stringify(obj,null,2);
+  code.innerHTML = hl(obj);
+  document.title = (obj.resourceType||'FHIR')+' · '+fname;
+  document.getElementById('rt').textContent = obj.resourceType || 'FHIR';
+  document.getElementById('fileTitle').textContent = fname;
+
+  document.getElementById('dlBtn').addEventListener('click',()=>{
+    const blob = new Blob([text+'\n'],{type:'application/fhir+json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href=url; a.download=fname; document.body.appendChild(a); a.click();
+    a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  document.getElementById('copyBtn').addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(text); toast('Copied to clipboard');}catch(e){toast('Copy failed');}
+  });
+}
+boot();
+</script>
+</body>
+</html>

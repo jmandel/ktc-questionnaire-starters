@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-esas-r-example",
-  "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json|1.0.0",
+  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r|1.0.0",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",

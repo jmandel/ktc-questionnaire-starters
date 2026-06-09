@@ -33,7 +33,7 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "phq-9",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/phq-9.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9",
         "version": "1.0.0",
         "name": "PHQ_9",
         "title": "Patient Health Questionnaire-9 (PHQ-9)",
@@ -670,7 +670,7 @@
       "response": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-phq-9-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/phq-9.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -882,7 +882,7 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "gad-7",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
         "version": "1.0.0",
         "name": "GAD_7",
         "title": "Generalized Anxiety Disorder-7 (GAD-7)",
@@ -1387,7 +1387,7 @@
       "response": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-gad-7-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/gad-7.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -1569,7 +1569,7 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "audit-c",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
         "version": "1.0.0",
         "name": "AUDIT_C",
         "title": "Alcohol Use Disorders Identification Test - Consumption (AUDIT-C)",
@@ -1844,7 +1844,7 @@
       "response": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-audit-c-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -1974,7 +1974,7 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "peg-3",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
         "version": "1.0.0",
         "name": "PEG_3",
         "title": "Pain, Enjoyment of life, General activity (PEG)",
@@ -2083,7 +2083,7 @@
       "response": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-peg-3-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/peg-3.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -2207,7 +2207,7 @@
       "questionnaire": {
         "resourceType": "Questionnaire",
         "id": "esas-r",
-        "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json",
+        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
         "version": "1.0.0",
         "name": "ESAS_r",
         "title": "Edmonton Symptom Assessment System (revised)",
@@ -2448,7 +2448,7 @@
       "response": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-esas-r-example",
-        "questionnaire": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/esas-r.questionnaire.json|1.0.0",
+        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r|1.0.0",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",

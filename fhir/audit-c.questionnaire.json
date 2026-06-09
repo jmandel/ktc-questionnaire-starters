@@ -1,7 +1,7 @@
 {
   "resourceType": "Questionnaire",
   "id": "audit-c",
-  "url": "https://jmandel.github.io/ktc-questionnaire-starters/fhir/audit-c.questionnaire.json",
+  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
   "version": "1.0.0",
   "name": "AUDIT_C",
   "title": "Alcohol Use Disorders Identification Test - Consumption (AUDIT-C)",
