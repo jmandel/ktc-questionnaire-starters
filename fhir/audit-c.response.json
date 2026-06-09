@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-audit-c-example",
-  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c|1.0.0",
+  "questionnaire": "http://loinc.org/q/72109-2",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",
@@ -13,7 +13,7 @@
   },
   "item": [
     {
-      "linkId": "68518-0",
+      "linkId": "72043",
       "text": "How often do you have a drink containing alcohol?",
       "answer": [
         {
@@ -26,8 +26,8 @@
       ]
     },
     {
-      "linkId": "68519-8",
-      "text": "How many standard drinks containing alcohol do you have on a typical day when drinking?",
+      "linkId": "72044",
+      "text": "How many standard drinks containing alcohol do you have on a typical day?",
       "answer": [
         {
           "valueCoding": {
@@ -39,8 +39,8 @@
       ]
     },
     {
-      "linkId": "68520-6",
-      "text": "How often do you have six or more drinks on one occasion?",
+      "linkId": "72042",
+      "text": "How often do you have 6 or more drinks on 1 occasion?",
       "answer": [
         {
           "valueCoding": {
@@ -52,11 +52,11 @@
       ]
     },
     {
-      "linkId": "75626-2",
-      "text": "Total score [AUDIT-C]",
+      "linkId": "72040",
+      "text": "Total score",
       "answer": [
         {
-          "valueInteger": 1
+          "valueDecimal": 1
         }
       ]
     }

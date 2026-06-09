@@ -1,39 +1,41 @@
 {
   "resourceType": "Questionnaire",
-  "id": "esas-r",
+  "id": "112503-8",
   "meta": {
-    "source": "https://fhir.loinc.org/Questionnaire/112503-8"
+    "versionId": "1",
+    "lastUpdated": "2026-02-24T21:52:39.978+00:00",
+    "source": "#QUYLcH7IGqH7fqfS"
   },
-  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r",
-  "version": "1.0.0",
-  "name": "ESAS_r",
-  "title": "Edmonton Symptom Assessment System (revised)",
-  "status": "active",
-  "experimental": true,
-  "date": "2026-06-09",
-  "publisher": "Kill the Clipboard \u2014 starter set",
-  "derivedFrom": [
-    "http://loinc.org/q/112503-8"
-  ],
+  "url": "http://loinc.org/q/112503-8",
+  "name": "Edmonton_Symptom_Assessment_System",
+  "title": "Edmonton Symptom Assessment System",
+  "status": "draft",
   "subjectType": [
     "Patient"
   ],
+  "publisher": "Regenstrief Institute, Inc.",
+  "contact": [
+    {
+      "name": "Regenstrief Institute, Inc.",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://loinc.org"
+        }
+      ]
+    }
+  ],
+  "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright \u00a9 Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC\u00ae is a registered United States trademark of Regenstrief Institute, Inc.",
   "code": [
     {
       "system": "http://loinc.org",
       "code": "112503-8",
-      "display": "Edmonton Symptom Assessment System [Edmonton Symptom Assessment System]"
+      "display": "Edmonton Symptom Assessment System"
     }
   ],
-  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. ESAS-r is in the public domain and freely available with acknowledgment (Alberta Health Services / Regional Palliative Care Program). Do not modify the current form or name without permission.",
   "item": [
     {
-      "linkId": "lead",
-      "text": "Please rate each symptom right now: 0 = no symptom \u2026 10 = worst possible symptom",
-      "type": "display"
-    },
-    {
-      "linkId": "112494-0",
+      "linkId": "151386",
       "code": [
         {
           "system": "http://loinc.org",
@@ -42,20 +44,91 @@
         }
       ],
       "text": "Pain",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA26951-6",
+            "display": "0:\"No pain\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA26952-4",
+            "display": "10: \"Worst pain imaginable\""
+          }
         }
       ]
     },
     {
-      "linkId": "112495-7",
+      "linkId": "151385",
       "code": [
         {
           "system": "http://loinc.org",
@@ -64,20 +137,91 @@
         }
       ],
       "text": "Tiredness (lack of energy)",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37058-7",
+            "display": "\"No tiredness\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37059-5",
+            "display": "\"Worst possible tiredness\""
+          }
         }
       ]
     },
     {
-      "linkId": "112496-5",
+      "linkId": "151384",
       "code": [
         {
           "system": "http://loinc.org",
@@ -86,20 +230,91 @@
         }
       ],
       "text": "Drowsiness (feeling sleepy)",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37060-3",
+            "display": "\"No drowsiness\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37061-1",
+            "display": "\"Worst possible drowsiness\""
+          }
         }
       ]
     },
     {
-      "linkId": "112497-3",
+      "linkId": "151383",
       "code": [
         {
           "system": "http://loinc.org",
@@ -108,20 +323,91 @@
         }
       ],
       "text": "Nausea",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37062-9",
+            "display": "\"No nausea\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37063-7",
+            "display": "\"Worst possible nausea\""
+          }
         }
       ]
     },
     {
-      "linkId": "112498-1",
+      "linkId": "151382",
       "code": [
         {
           "system": "http://loinc.org",
@@ -130,20 +416,91 @@
         }
       ],
       "text": "Lack of appetite",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37064-5",
+            "display": "\"No lack of appetite\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37065-2",
+            "display": "\"Worst possible lack of appetite\""
+          }
         }
       ]
     },
     {
-      "linkId": "112499-9",
+      "linkId": "151381",
       "code": [
         {
           "system": "http://loinc.org",
@@ -152,20 +509,91 @@
         }
       ],
       "text": "Shortness of breath",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37066-0",
+            "display": "\"No shortness of breath\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37067-8",
+            "display": "\"Worst possible shortness of breath\""
+          }
         }
       ]
     },
     {
-      "linkId": "112500-4",
+      "linkId": "151380",
       "code": [
         {
           "system": "http://loinc.org",
@@ -174,20 +602,91 @@
         }
       ],
       "text": "Depression (feeling sad)",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37068-6",
+            "display": "\"No depression\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37069-4",
+            "display": "\"Worst possible depression\""
+          }
         }
       ]
     },
     {
-      "linkId": "112501-2",
+      "linkId": "151379",
       "code": [
         {
           "system": "http://loinc.org",
@@ -196,20 +695,91 @@
         }
       ],
       "text": "Anxiety (feeling nervous)",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37070-2",
+            "display": "\"No anxiety\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37071-0",
+            "display": "\"Worst possible anxiety\""
+          }
         }
       ]
     },
     {
-      "linkId": "112502-0",
+      "linkId": "151378",
       "code": [
         {
           "system": "http://loinc.org",
@@ -218,30 +788,93 @@
         }
       ],
       "text": "Wellbeing (how you feel overall)",
-      "type": "integer",
-      "extension": [
+      "type": "choice",
+      "required": true,
+      "repeats": false,
+      "answerOption": [
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-          "valueInteger": 0
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37072-8",
+            "display": "\"Best wellbeing\""
+          }
         },
         {
-          "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-          "valueInteger": 10
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6112-2",
+            "display": "1"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10138-8",
+            "display": "6"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10140-4",
+            "display": "8"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10141-2",
+            "display": "9"
+          }
+        },
+        {
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA37073-6",
+            "display": "\"Worst possible wellbeing\""
+          }
         }
       ]
     },
     {
-      "linkId": "112493-2",
-      "code": [
-        {
-          "system": "http://loinc.org",
-          "code": "112493-2",
-          "display": "Total score [Edmonton Symptom Assessment System]"
-        }
-      ],
-      "text": "Total score [Edmonton Symptom Assessment System]",
-      "type": "integer",
-      "readOnly": true
+      "linkId": "151377",
+      "text": "Total score",
+      "type": "decimal"
     }
   ]
 }

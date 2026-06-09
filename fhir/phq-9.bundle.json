@@ -4,43 +4,45 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9",
+      "fullUrl": "http://loinc.org/q/44249-1",
       "resource": {
         "resourceType": "Questionnaire",
-        "id": "phq-9",
+        "id": "44249-1",
         "meta": {
-          "source": "https://fhir.loinc.org/Questionnaire/44249-1"
+          "versionId": "7",
+          "lastUpdated": "2024-08-06T21:03:46.493+00:00",
+          "source": "#WEjguR255B3Y7qmH"
         },
-        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9",
-        "version": "1.0.0",
-        "name": "PHQ_9",
-        "title": "Patient Health Questionnaire-9 (PHQ-9)",
-        "status": "active",
-        "experimental": true,
-        "date": "2026-06-09",
-        "publisher": "Kill the Clipboard \u2014 starter set",
-        "derivedFrom": [
-          "http://loinc.org/q/44249-1"
-        ],
+        "url": "http://loinc.org/q/44249-1",
+        "name": "PHQ_quick_depression_assessment_panel",
+        "title": "PHQ-9 quick depression assessment panel",
+        "status": "draft",
         "subjectType": [
           "Patient"
         ],
+        "publisher": "Regenstrief Institute, Inc.",
+        "contact": [
+          {
+            "name": "Regenstrief Institute, Inc.",
+            "telecom": [
+              {
+                "system": "url",
+                "value": "http://loinc.org"
+              }
+            ]
+          }
+        ],
+        "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright \u00a9 Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC\u00ae is a registered United States trademark of Regenstrief Institute, Inc.\r\nCopyright \u00a9 Pfizer Inc. All rights reserved. Developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
         "code": [
           {
             "system": "http://loinc.org",
             "code": "44249-1",
-            "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
+            "display": "PHQ-9 quick depression assessment panel"
           }
         ],
-        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. PHQ-9 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
         "item": [
           {
-            "linkId": "lead",
-            "text": "Over the last 2 weeks, how often have you been bothered by any of the following problems?",
-            "type": "display"
-          },
-          {
-            "linkId": "44250-9",
+            "linkId": "14363",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -48,16 +50,13 @@
                 "display": "Little interest or pleasure in doing things"
               }
             ],
+            "prefix": "PHQ-9.1",
             "text": "Little interest or pleasure in doing things",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -65,12 +64,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -78,12 +71,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -91,12 +78,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -106,7 +87,7 @@
             ]
           },
           {
-            "linkId": "44255-8",
+            "linkId": "14364",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -114,16 +95,13 @@
                 "display": "Feeling down, depressed, or hopeless"
               }
             ],
+            "prefix": "PHQ-9.2",
             "text": "Feeling down, depressed, or hopeless",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -131,12 +109,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -144,12 +116,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -157,12 +123,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -172,7 +132,7 @@
             ]
           },
           {
-            "linkId": "44259-0",
+            "linkId": "14365",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -182,14 +142,10 @@
             ],
             "text": "Trouble falling or staying asleep, or sleeping too much",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -197,12 +153,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -210,12 +160,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -223,12 +167,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -238,7 +176,7 @@
             ]
           },
           {
-            "linkId": "44254-1",
+            "linkId": "14366",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -248,14 +186,10 @@
             ],
             "text": "Feeling tired or having little energy",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -263,12 +197,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -276,12 +204,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -289,12 +211,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -304,7 +220,7 @@
             ]
           },
           {
-            "linkId": "44251-7",
+            "linkId": "14367",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -314,14 +230,10 @@
             ],
             "text": "Poor appetite or overeating",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -329,12 +241,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -342,12 +248,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -355,12 +255,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -370,24 +264,20 @@
             ]
           },
           {
-            "linkId": "44258-2",
+            "linkId": "14368",
             "code": [
               {
                 "system": "http://loinc.org",
                 "code": "44258-2",
-                "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down"
+                "display": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down"
               }
             ],
-            "text": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+            "text": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -395,12 +285,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -408,12 +292,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -421,12 +299,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -436,7 +308,7 @@
             ]
           },
           {
-            "linkId": "44252-5",
+            "linkId": "14369",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -446,14 +318,10 @@
             ],
             "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -461,12 +329,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -474,12 +336,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -487,12 +343,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -502,24 +352,20 @@
             ]
           },
           {
-            "linkId": "44253-3",
+            "linkId": "14370",
             "code": [
               {
                 "system": "http://loinc.org",
                 "code": "44253-3",
-                "display": "Moving or speaking so slowly that other people could have noticed - or the opposite, being so fidgety or restless that you have been moving around a lot more than usual"
+                "display": "Moving or speaking so slowly that other people could have noticed. Or the opposite \u2013 being so fidgety or restless that you were moving around a lot more than usual"
               }
             ],
-            "text": "Moving or speaking so slowly that other people could have noticed - or the opposite, being so fidgety or restless that you have been moving around a lot more than usual",
+            "text": "Moving or speaking so slowly that other people could have noticed. Or the opposite \u2013 being so fidgety or restless that you were moving around a lot more than usual",
             "type": "choice",
+            "required": true,
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -527,12 +373,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -540,12 +380,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -553,12 +387,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -568,7 +396,7 @@
             ]
           },
           {
-            "linkId": "44260-8",
+            "linkId": "14371",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -578,14 +406,9 @@
             ],
             "text": "Thoughts that you would be better off dead, or of hurting yourself in some way",
             "type": "choice",
+            "repeats": false,
             "answerOption": [
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 0
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6568-5",
@@ -593,12 +416,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 1
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6569-3",
@@ -606,12 +423,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 2
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6570-1",
@@ -619,12 +430,6 @@
                 }
               },
               {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-                    "valueDecimal": 3
-                  }
-                ],
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6571-9",
@@ -634,17 +439,52 @@
             ]
           },
           {
-            "linkId": "44261-6",
+            "linkId": "57492",
             "code": [
               {
                 "system": "http://loinc.org",
-                "code": "44261-6",
-                "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
+                "code": "69722-7",
+                "display": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?"
               }
             ],
-            "text": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
-            "type": "integer",
-            "readOnly": true
+            "text": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
+            "type": "choice",
+            "repeats": false,
+            "answerOption": [
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6572-7",
+                  "display": "Not difficult at all"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6573-5",
+                  "display": "Somewhat difficult"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6575-0",
+                  "display": "Very difficult"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6574-3",
+                  "display": "Extremely difficult"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "14372",
+            "text": "Patient health questionnaire 9 item total score",
+            "type": "decimal"
           }
         ]
       }
@@ -654,7 +494,7 @@
       "resource": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-phq-9-example",
-        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/phq-9|1.0.0",
+        "questionnaire": "http://loinc.org/q/44249-1",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -666,7 +506,7 @@
         },
         "item": [
           {
-            "linkId": "44250-9",
+            "linkId": "14363",
             "text": "Little interest or pleasure in doing things",
             "answer": [
               {
@@ -679,7 +519,7 @@
             ]
           },
           {
-            "linkId": "44255-8",
+            "linkId": "14364",
             "text": "Feeling down, depressed, or hopeless",
             "answer": [
               {
@@ -692,7 +532,7 @@
             ]
           },
           {
-            "linkId": "44259-0",
+            "linkId": "14365",
             "text": "Trouble falling or staying asleep, or sleeping too much",
             "answer": [
               {
@@ -705,7 +545,7 @@
             ]
           },
           {
-            "linkId": "44254-1",
+            "linkId": "14366",
             "text": "Feeling tired or having little energy",
             "answer": [
               {
@@ -718,7 +558,7 @@
             ]
           },
           {
-            "linkId": "44251-7",
+            "linkId": "14367",
             "text": "Poor appetite or overeating",
             "answer": [
               {
@@ -731,8 +571,8 @@
             ]
           },
           {
-            "linkId": "44258-2",
-            "text": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
+            "linkId": "14368",
+            "text": "Feeling bad about yourself-or that you are a failure or have let yourself or your family down",
             "answer": [
               {
                 "valueCoding": {
@@ -744,7 +584,7 @@
             ]
           },
           {
-            "linkId": "44252-5",
+            "linkId": "14369",
             "text": "Trouble concentrating on things, such as reading the newspaper or watching television",
             "answer": [
               {
@@ -757,8 +597,8 @@
             ]
           },
           {
-            "linkId": "44253-3",
-            "text": "Moving or speaking so slowly that other people could have noticed - or the opposite, being so fidgety or restless that you have been moving around a lot more than usual",
+            "linkId": "14370",
+            "text": "Moving or speaking so slowly that other people could have noticed. Or the opposite \u2013 being so fidgety or restless that you were moving around a lot more than usual",
             "answer": [
               {
                 "valueCoding": {
@@ -770,7 +610,7 @@
             ]
           },
           {
-            "linkId": "44260-8",
+            "linkId": "14371",
             "text": "Thoughts that you would be better off dead, or of hurting yourself in some way",
             "answer": [
               {
@@ -783,11 +623,24 @@
             ]
           },
           {
-            "linkId": "44261-6",
-            "text": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]",
+            "linkId": "57492",
+            "text": "How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people?",
             "answer": [
               {
-                "valueInteger": 9
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6573-5",
+                  "display": "Somewhat difficult"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "14372",
+            "text": "Patient health questionnaire 9 item total score",
+            "answer": [
+              {
+                "valueDecimal": 9
               }
             ]
           }

@@ -1,34 +1,41 @@
 {
   "resourceType": "Questionnaire",
-  "id": "audit-c",
+  "id": "72109-2",
   "meta": {
-    "source": "https://fhir.loinc.org/Questionnaire/72109-2"
+    "versionId": "12",
+    "lastUpdated": "2026-02-24T21:52:39.978+00:00",
+    "source": "#QUYLcH7IGqH7fqfS"
   },
-  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/audit-c",
-  "version": "1.0.0",
-  "name": "AUDIT_C",
-  "title": "Alcohol Use Disorders Identification Test - Consumption (AUDIT-C)",
-  "status": "active",
-  "experimental": true,
-  "date": "2026-06-09",
-  "publisher": "Kill the Clipboard \u2014 starter set",
-  "derivedFrom": [
-    "http://loinc.org/q/72109-2"
-  ],
+  "url": "http://loinc.org/q/72109-2",
+  "name": "Alcohol_use_disorder_identification_test_consumption",
+  "title": "Alcohol use disorder identification test-consumption",
+  "status": "draft",
   "subjectType": [
     "Patient"
   ],
+  "publisher": "Regenstrief Institute, Inc.",
+  "contact": [
+    {
+      "name": "Regenstrief Institute, Inc.",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://loinc.org"
+        }
+      ]
+    }
+  ],
+  "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright \u00a9 Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC\u00ae is a registered United States trademark of Regenstrief Institute, Inc.",
   "code": [
     {
       "system": "http://loinc.org",
       "code": "72109-2",
-      "display": "Alcohol Use Disorder Identification Test - Consumption [AUDIT-C]"
+      "display": "Alcohol use disorder identification test-consumption"
     }
   ],
-  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The AUDIT and AUDIT-C were developed by the World Health Organization (WHO) and are in the public domain.",
   "item": [
     {
-      "linkId": "68518-0",
+      "linkId": "72043",
       "code": [
         {
           "system": "http://loinc.org",
@@ -38,14 +45,9 @@
       ],
       "text": "How often do you have a drink containing alcohol?",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6270-8",
@@ -53,12 +55,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18926-8",
@@ -66,12 +62,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18927-6",
@@ -79,12 +69,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18928-4",
@@ -92,12 +76,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 4
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18929-2",
@@ -107,24 +85,19 @@
       ]
     },
     {
-      "linkId": "68519-8",
+      "linkId": "72044",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "68519-8",
-          "display": "How many standard drinks containing alcohol do you have on a typical day when drinking?"
+          "display": "How many standard drinks containing alcohol do you have on a typical day?"
         }
       ],
-      "text": "How many standard drinks containing alcohol do you have on a typical day when drinking?",
+      "text": "How many standard drinks containing alcohol do you have on a typical day?",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA15694-5",
@@ -132,12 +105,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA15695-2",
@@ -145,12 +112,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18930-0",
@@ -158,12 +119,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18931-8",
@@ -171,12 +126,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 4
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18932-6",
@@ -186,24 +135,19 @@
       ]
     },
     {
-      "linkId": "68520-6",
+      "linkId": "72042",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "68520-6",
-          "display": "How often do you have six or more drinks on one occasion?"
+          "display": "How often do you have 6 or more drinks on 1 occasion?"
         }
       ],
-      "text": "How often do you have six or more drinks on one occasion?",
+      "text": "How often do you have 6 or more drinks on 1 occasion?",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6270-8",
@@ -211,12 +155,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18933-4",
@@ -224,12 +162,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18876-5",
@@ -237,12 +169,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18891-4",
@@ -250,12 +176,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 4
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA18934-2",
@@ -265,17 +185,9 @@
       ]
     },
     {
-      "linkId": "75626-2",
-      "code": [
-        {
-          "system": "http://loinc.org",
-          "code": "75626-2",
-          "display": "Total score [AUDIT-C]"
-        }
-      ],
-      "text": "Total score [AUDIT-C]",
-      "type": "integer",
-      "readOnly": true
+      "linkId": "72040",
+      "text": "Total score",
+      "type": "decimal"
     }
   ]
 }

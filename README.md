@@ -34,38 +34,59 @@ These are a **capability demonstration set, not a closed catalog**. The general 
 Questionnaire, collect a Response, preserve provenance, extract Observations, route follow-up — applies
 to any appropriately licensed or locally authored instrument.
 
-### On canonical URLs
+### Refreshing the official forms
 
-The LOINC panel code in `Questionnaire.code` is the real interoperability anchor — it's what a receiving
-system matches on, regardless of who rendered the form. LOINC also publishes official FHIR Questionnaires
-for these panels at [`fhir.loinc.org`](https://fhir.loinc.org/Questionnaire/) with the canonical
-`http://loinc.org/q/<panel>`. Because our resources are our own rendering (LOINC-code `linkId`s plus an
-`ordinalValue` scoring extension, which LOINC's published form does not carry), they keep their own `url`
-but cite LOINC's official form via `derivedFrom` and `meta.source`. We don't reuse LOINC's canonical
-`url`, which would falsely assert these *are* LOINC's resource (its `linkId`s and item set differ).
+`fhir-loinc/*.json` were fetched from LOINC's terminology server, which needs a free LOINC account:
+
+```bash
+# .env (gitignored) holds LOINC_USERNAME and LOINC_PASSWORD
+set -a; . ./.env; set +a
+for code in 44249-1 69737-5 72109-2 91148-7 112503-8; do
+  curl -sS -u "$LOINC_USERNAME:$LOINC_PASSWORD" -H "Accept: application/fhir+json" \
+       -o "fhir-loinc/$code.json" "https://fhir.loinc.org/Questionnaire/$code"
+done
+python3 generate.py && python3 verify_loinc.py
+```
 
 ## What's in here
 
 ```
 index.html                 # the single-page site (live, fillable demo)
 data.json                  # bundle the site loads (generated)
-generate.py                # source of truth — generates all FHIR + data.json
-verify_loinc.py            # validates every code/answer against a LOINC distribution
+generate.py                # generates responses/observations/bundles + data.json
+verify_loinc.py            # validates codes/answers/scores against a LOINC distribution
+fhir-loinc/
+  <panel>.json             # LOINC's official Questionnaires, fetched verbatim from fhir.loinc.org
 fhir/
-  <id>.questionnaire.json  # Questionnaire (panel code, item codes, answerOption w/ ordinalValue)
-  <id>.response.json       # example QuestionnaireResponse
+  <id>.questionnaire.json  # the official LOINC Questionnaire (redistributed as-is)
+  <id>.response.json       # example QuestionnaireResponse (LOINC linkIds, real datatypes)
   <id>.observation.json    # extracted, LOINC-coded score Observation (category=survey)
   <id>.bundle.json         # all three as a collection Bundle
 ```
 
+The Questionnaires here are **LOINC's official FHIR Questionnaires**, published by Regenstrief at
+[`fhir.loinc.org`](https://fhir.loinc.org/Questionnaire/) and redistributed under the
+[LOINC license](http://loinc.org/license) (the notice travels in `Questionnaire.copyright`). We render
+them as-is — real numeric `linkId`s, real answer codes — and the example responses reference their
+canonical `http://loinc.org/q/<panel>`.
+
 ## The FHIR pattern
 
-1. **`Questionnaire`** — canonical URL, LOINC panel code, item codes, answer options with
-   `ordinalValue` scores, version, `copyright`, and `derivedFrom` the official LOINC form.
-2. **`QuestionnaireResponse`** — answers by `linkId`, `source`/author, `authored` timestamp, link back
-   to the Questionnaire. The raw provenance record.
+1. **`Questionnaire`** — LOINC's official form: canonical `http://loinc.org/q/<panel>`, panel code,
+   item codes, answer options, `copyright`.
+2. **`QuestionnaireResponse`** — answers by LOINC `linkId` with the right datatype (`valueCoding` for
+   choice items, `valueInteger`/`valueDecimal` for numeric), `source`/author, `authored` timestamp,
+   referencing the LOINC canonical. The raw provenance record.
 3. **`Observation`** — `category = survey`, LOINC score code, `valueQuantity` in `{score}`,
    `derivedFrom` the response. The searchable, trendable result.
+
+## Scoring
+
+LOINC orders each item's answers from least to most, so the **option index is the ordinal** (the stored
+`Score` field in LOINC's answer file is unreliable for several of these panels). The total is a **sum**,
+except **PEG** which is a **mean**. PHQ-9's functional-difficulty item and each form's score item are not
+summed. Scoring lives in `generate.py` (for the example responses) and in the page's JS (for the live
+demo); `verify_loinc.py` re-derives every score and checks it against the response.
 
 ## Regenerating & verifying
 

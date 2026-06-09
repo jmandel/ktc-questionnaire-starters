@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-gad-7-example",
-  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7|1.0.0",
+  "questionnaire": "http://loinc.org/q/69737-5",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",
@@ -13,8 +13,8 @@
   },
   "item": [
     {
-      "linkId": "69725-0",
-      "text": "Feeling nervous, anxious, or on edge",
+      "linkId": "57541",
+      "text": "Feeling nervous, anxious or on edge",
       "answer": [
         {
           "valueCoding": {
@@ -26,8 +26,8 @@
       ]
     },
     {
-      "linkId": "68509-9",
-      "text": "Not being able to stop or control worrying",
+      "linkId": "57542",
+      "text": "Over the past 2 weeks have you not been able to stop or control worrying",
       "answer": [
         {
           "valueCoding": {
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "linkId": "69733-4",
+      "linkId": "57543",
       "text": "Worrying too much about different things",
       "answer": [
         {
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "linkId": "69734-2",
+      "linkId": "57544",
       "text": "Trouble relaxing",
       "answer": [
         {
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "linkId": "69735-9",
+      "linkId": "57545",
       "text": "Being so restless that it is hard to sit still",
       "answer": [
         {
@@ -78,8 +78,8 @@
       ]
     },
     {
-      "linkId": "69689-8",
-      "text": "Becoming easily annoyed or irritable",
+      "linkId": "57546",
+      "text": "Becoming easily annoyed or irritable.",
       "answer": [
         {
           "valueCoding": {
@@ -91,8 +91,8 @@
       ]
     },
     {
-      "linkId": "69736-7",
-      "text": "Feeling afraid, as if something awful might happen",
+      "linkId": "57547",
+      "text": "Feeling afraid as if something awful might happen",
       "answer": [
         {
           "valueCoding": {
@@ -104,11 +104,11 @@
       ]
     },
     {
-      "linkId": "70274-6",
-      "text": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
+      "linkId": "58628",
+      "text": "Generalized anxiety disorder 7 item total score",
       "answer": [
         {
-          "valueInteger": 7
+          "valueDecimal": 7
         }
       ]
     }

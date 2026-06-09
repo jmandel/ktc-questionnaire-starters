@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-peg-3-example",
-  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3|1.0.0",
+  "questionnaire": "http://loinc.org/q/91148-7",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",
@@ -13,38 +13,46 @@
   },
   "item": [
     {
-      "linkId": "75893-8",
+      "linkId": "108518",
       "text": "What number best describes your pain on average in the past week?",
       "answer": [
         {
-          "valueInteger": 6
+          "valueDecimal": 6
         }
       ]
     },
     {
-      "linkId": "91145-3",
+      "linkId": "108514",
       "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
       "answer": [
         {
-          "valueInteger": 7
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
         }
       ]
     },
     {
-      "linkId": "91146-1",
+      "linkId": "108515",
       "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
       "answer": [
         {
-          "valueInteger": 5
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
         }
       ]
     },
     {
-      "linkId": "91147-9",
-      "text": "Mean score [PEG]",
+      "linkId": "108516",
+      "text": "Mean score",
       "answer": [
         {
-          "valueDecimal": 6.0
+          "valueDecimal": 5.7
         }
       ]
     }

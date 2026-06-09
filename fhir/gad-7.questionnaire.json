@@ -1,56 +1,54 @@
 {
   "resourceType": "Questionnaire",
-  "id": "gad-7",
+  "id": "69737-5",
   "meta": {
-    "source": "https://fhir.loinc.org/Questionnaire/69737-5"
+    "versionId": "8",
+    "lastUpdated": "2026-02-24T21:52:39.978+00:00",
+    "source": "#QUYLcH7IGqH7fqfS"
   },
-  "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/gad-7",
-  "version": "1.0.0",
-  "name": "GAD_7",
-  "title": "Generalized Anxiety Disorder-7 (GAD-7)",
-  "status": "active",
-  "experimental": true,
-  "date": "2026-06-09",
-  "publisher": "Kill the Clipboard \u2014 starter set",
-  "derivedFrom": [
-    "http://loinc.org/q/69737-5"
-  ],
+  "url": "http://loinc.org/q/69737-5",
+  "name": "Generalized_anxiety_disorder_item",
+  "title": "Generalized anxiety disorder 7 item",
+  "status": "draft",
   "subjectType": [
     "Patient"
   ],
+  "publisher": "Regenstrief Institute, Inc.",
+  "contact": [
+    {
+      "name": "Regenstrief Institute, Inc.",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://loinc.org"
+        }
+      ]
+    }
+  ],
+  "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright \u00a9 Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC\u00ae is a registered United States trademark of Regenstrief Institute, Inc.\r\nCopyright \u00a9 Pfizer Inc. All rights reserved. Developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
   "code": [
     {
       "system": "http://loinc.org",
       "code": "69737-5",
-      "display": "Generalized anxiety disorder 7 item (GAD-7)"
+      "display": "Generalized anxiety disorder 7 item"
     }
   ],
-  "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. GAD-7 was developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission is required to reproduce, translate, display, or distribute it.",
   "item": [
     {
-      "linkId": "lead",
-      "text": "Over the last 2 weeks, how often have you been bothered by the following problems?",
-      "type": "display"
-    },
-    {
-      "linkId": "69725-0",
+      "linkId": "57541",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "69725-0",
-          "display": "Feeling nervous, anxious, or on edge"
+          "display": "Feeling nervous, anxious or on edge"
         }
       ],
-      "text": "Feeling nervous, anxious, or on edge",
+      "prefix": "GAD7_01",
+      "text": "Feeling nervous, anxious or on edge",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -58,12 +56,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -71,12 +63,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -84,12 +70,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -99,24 +79,20 @@
       ]
     },
     {
-      "linkId": "68509-9",
+      "linkId": "57542",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "68509-9",
-          "display": "Not being able to stop or control worrying"
+          "display": "Over the past 2 weeks have you not been able to stop or control worrying"
         }
       ],
-      "text": "Not being able to stop or control worrying",
+      "prefix": "GAD7_02",
+      "text": "Over the past 2 weeks have you not been able to stop or control worrying",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -124,12 +100,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -137,12 +107,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -150,12 +114,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -165,7 +123,7 @@
       ]
     },
     {
-      "linkId": "69733-4",
+      "linkId": "57543",
       "code": [
         {
           "system": "http://loinc.org",
@@ -173,16 +131,12 @@
           "display": "Worrying too much about different things"
         }
       ],
+      "prefix": "GAD7_03",
       "text": "Worrying too much about different things",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -190,12 +144,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -203,12 +151,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -216,12 +158,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -231,7 +167,7 @@
       ]
     },
     {
-      "linkId": "69734-2",
+      "linkId": "57544",
       "code": [
         {
           "system": "http://loinc.org",
@@ -239,16 +175,12 @@
           "display": "Trouble relaxing"
         }
       ],
+      "prefix": "GAD7_04",
       "text": "Trouble relaxing",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -256,12 +188,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -269,12 +195,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -282,12 +202,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -297,7 +211,7 @@
       ]
     },
     {
-      "linkId": "69735-9",
+      "linkId": "57545",
       "code": [
         {
           "system": "http://loinc.org",
@@ -305,16 +219,13 @@
           "display": "Being so restless that it is hard to sit still"
         }
       ],
+      "prefix": "GAD7_05",
       "text": "Being so restless that it is hard to sit still",
       "type": "choice",
+      "enableBehavior": "any",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -322,12 +233,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -335,12 +240,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -348,12 +247,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -363,24 +256,20 @@
       ]
     },
     {
-      "linkId": "69689-8",
+      "linkId": "57546",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "69689-8",
-          "display": "Becoming easily annoyed or irritable"
+          "display": "Becoming easily annoyed or irritable."
         }
       ],
-      "text": "Becoming easily annoyed or irritable",
+      "prefix": "GAD7_06",
+      "text": "Becoming easily annoyed or irritable.",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -388,12 +277,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -401,12 +284,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -414,12 +291,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -429,24 +300,20 @@
       ]
     },
     {
-      "linkId": "69736-7",
+      "linkId": "57547",
       "code": [
         {
           "system": "http://loinc.org",
           "code": "69736-7",
-          "display": "Feeling afraid, as if something awful might happen"
+          "display": "Feeling afraid as if something awful might happen"
         }
       ],
-      "text": "Feeling afraid, as if something awful might happen",
+      "prefix": "GAD7_07",
+      "text": "Feeling afraid as if something awful might happen",
       "type": "choice",
+      "repeats": false,
       "answerOption": [
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 0
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6568-5",
@@ -454,12 +321,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 1
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
@@ -467,12 +328,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 2
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
@@ -480,12 +335,6 @@
           }
         },
         {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
-              "valueDecimal": 3
-            }
-          ],
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
@@ -495,17 +344,9 @@
       ]
     },
     {
-      "linkId": "70274-6",
-      "code": [
-        {
-          "system": "http://loinc.org",
-          "code": "70274-6",
-          "display": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]"
-        }
-      ],
-      "text": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]",
-      "type": "integer",
-      "readOnly": true
+      "linkId": "58628",
+      "text": "Generalized anxiety disorder 7 item total score",
+      "type": "decimal"
     }
   ]
 }

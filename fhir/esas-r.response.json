@@ -1,7 +1,7 @@
 {
   "resourceType": "QuestionnaireResponse",
   "id": "qr-esas-r-example",
-  "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/esas-r|1.0.0",
+  "questionnaire": "http://loinc.org/q/112503-8",
   "status": "completed",
   "subject": {
     "reference": "Patient/example",
@@ -13,92 +13,128 @@
   },
   "item": [
     {
-      "linkId": "112494-0",
+      "linkId": "151386",
       "text": "Pain",
       "answer": [
         {
-          "valueInteger": 4
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
         }
       ]
     },
     {
-      "linkId": "112495-7",
+      "linkId": "151385",
       "text": "Tiredness (lack of energy)",
       "answer": [
         {
-          "valueInteger": 7
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10139-6",
+            "display": "7"
+          }
         }
       ]
     },
     {
-      "linkId": "112496-5",
+      "linkId": "151384",
       "text": "Drowsiness (feeling sleepy)",
       "answer": [
         {
-          "valueInteger": 3
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
         }
       ]
     },
     {
-      "linkId": "112497-3",
+      "linkId": "151383",
       "text": "Nausea",
       "answer": [
         {
-          "valueInteger": 2
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA34475-6",
+            "display": "2"
+          }
         }
       ]
     },
     {
-      "linkId": "112498-1",
+      "linkId": "151382",
       "text": "Lack of appetite",
       "answer": [
         {
-          "valueInteger": 5
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
         }
       ]
     },
     {
-      "linkId": "112499-9",
+      "linkId": "151381",
       "text": "Shortness of breath",
       "answer": [
         {
-          "valueInteger": 5
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA10137-0",
+            "display": "5"
+          }
         }
       ]
     },
     {
-      "linkId": "112500-4",
+      "linkId": "151380",
       "text": "Depression (feeling sad)",
       "answer": [
         {
-          "valueInteger": 3
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6114-8",
+            "display": "3"
+          }
         }
       ]
     },
     {
-      "linkId": "112501-2",
+      "linkId": "151379",
       "text": "Anxiety (feeling nervous)",
       "answer": [
         {
-          "valueInteger": 4
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
         }
       ]
     },
     {
-      "linkId": "112502-0",
+      "linkId": "151378",
       "text": "Wellbeing (how you feel overall)",
       "answer": [
         {
-          "valueInteger": 4
+          "valueCoding": {
+            "system": "http://loinc.org",
+            "code": "LA6115-5",
+            "display": "4"
+          }
         }
       ]
     },
     {
-      "linkId": "112493-2",
-      "text": "Total score [Edmonton Symptom Assessment System]",
+      "linkId": "151377",
+      "text": "Total score",
       "answer": [
         {
-          "valueInteger": 37
+          "valueDecimal": 37
         }
       ]
     }

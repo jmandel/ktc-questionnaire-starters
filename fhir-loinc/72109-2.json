@@ -1,0 +1,156 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "72109-2",
+  "meta": {
+    "versionId": "12",
+    "lastUpdated": "2026-02-24T21:52:39.978+00:00",
+    "source": "#QUYLcH7IGqH7fqfS"
+  },
+  "url": "http://loinc.org/q/72109-2",
+  "name": "Alcohol_use_disorder_identification_test_consumption",
+  "title": "Alcohol use disorder identification test-consumption",
+  "status": "draft",
+  "subjectType": [ "Patient" ],
+  "publisher": "Regenstrief Institute, Inc.",
+  "contact": [ {
+    "name": "Regenstrief Institute, Inc.",
+    "telecom": [ {
+      "system": "url",
+      "value": "http://loinc.org"
+    } ]
+  } ],
+  "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright © Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.",
+  "code": [ {
+    "system": "http://loinc.org",
+    "code": "72109-2",
+    "display": "Alcohol use disorder identification test-consumption"
+  } ],
+  "item": [ {
+    "linkId": "72043",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "68518-0",
+      "display": "How often do you have a drink containing alcohol?"
+    } ],
+    "text": "How often do you have a drink containing alcohol?",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6270-8",
+        "display": "Never"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18926-8",
+        "display": "Monthly or less"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18927-6",
+        "display": "2-4 times a month"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18928-4",
+        "display": "2-3 times a week"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18929-2",
+        "display": "4 or more times a week"
+      }
+    } ]
+  }, {
+    "linkId": "72044",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "68519-8",
+      "display": "How many standard drinks containing alcohol do you have on a typical day?"
+    } ],
+    "text": "How many standard drinks containing alcohol do you have on a typical day?",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA15694-5",
+        "display": "1 or 2"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA15695-2",
+        "display": "3 or 4"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18930-0",
+        "display": "5 or 6"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18931-8",
+        "display": "7 to 9"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18932-6",
+        "display": "10 or more"
+      }
+    } ]
+  }, {
+    "linkId": "72042",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "68520-6",
+      "display": "How often do you have 6 or more drinks on 1 occasion?"
+    } ],
+    "text": "How often do you have 6 or more drinks on 1 occasion?",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6270-8",
+        "display": "Never"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18933-4",
+        "display": "Less than monthly"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18876-5",
+        "display": "Monthly"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18891-4",
+        "display": "Weekly"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA18934-2",
+        "display": "Daily or almost daily"
+      }
+    } ]
+  }, {
+    "linkId": "72040",
+    "text": "Total score",
+    "type": "decimal"
+  } ]
+}

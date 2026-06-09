@@ -4,65 +4,50 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
+      "fullUrl": "http://loinc.org/q/91148-7",
       "resource": {
         "resourceType": "Questionnaire",
-        "id": "peg-3",
+        "id": "91148-7",
         "meta": {
-          "source": "https://fhir.loinc.org/Questionnaire/91148-7"
+          "versionId": "7",
+          "lastUpdated": "2024-08-06T21:03:46.493+00:00",
+          "source": "#WEjguR255B3Y7qmH"
         },
-        "url": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3",
-        "version": "1.0.0",
-        "name": "PEG_3",
-        "title": "Pain, Enjoyment of life, General activity (PEG)",
-        "status": "active",
-        "experimental": true,
-        "date": "2026-06-09",
-        "publisher": "Kill the Clipboard \u2014 starter set",
-        "derivedFrom": [
-          "http://loinc.org/q/91148-7"
-        ],
+        "url": "http://loinc.org/q/91148-7",
+        "name": "Pain_intensity_Enjoyment_of_life_General_activity_PEG_item_pain_scale",
+        "title": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale",
+        "status": "draft",
         "subjectType": [
           "Patient"
         ],
+        "publisher": "Regenstrief Institute, Inc.",
+        "contact": [
+          {
+            "name": "Regenstrief Institute, Inc.",
+            "telecom": [
+              {
+                "system": "url",
+                "value": "http://loinc.org"
+              }
+            ]
+          }
+        ],
+        "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright \u00a9 Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC\u00ae is a registered United States trademark of Regenstrief Institute, Inc.",
         "code": [
           {
             "system": "http://loinc.org",
             "code": "91148-7",
-            "display": "Pain intensity, Enjoyment of life, General activity scale [PEG]"
+            "display": "Pain intensity, Enjoyment of life, General activity (PEG) 3 item pain scale"
           }
         ],
-        "copyright": "This material contains content from LOINC (http://loinc.org), copyright (c) Regenstrief Institute, Inc. and the LOINC Committee, available at no cost under the license at http://loinc.org/license. LOINC(R) is a registered trademark of Regenstrief Institute, Inc. The PEG is freely available in the public domain (Krebs EE, et al. J Gen Intern Med. 2009). Cite the original validation source when reproduced.",
         "item": [
           {
-            "linkId": "lead",
-            "text": "0 = no pain / does not interfere \u2026 10 = pain as bad as you can imagine / completely interferes",
-            "type": "display"
-          },
-          {
-            "linkId": "75893-8",
-            "code": [
-              {
-                "system": "http://loinc.org",
-                "code": "75893-8",
-                "display": "What number best describes your pain on average in the past week?"
-              }
-            ],
+            "linkId": "108518",
             "text": "What number best describes your pain on average in the past week?",
-            "type": "integer",
-            "extension": [
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-                "valueInteger": 0
-              },
-              {
-                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-                "valueInteger": 10
-              }
-            ]
+            "type": "decimal"
           },
           {
-            "linkId": "91145-3",
+            "linkId": "108514",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -71,20 +56,90 @@
               }
             ],
             "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
-            "type": "integer",
-            "extension": [
+            "type": "choice",
+            "repeats": false,
+            "answerOption": [
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-                "valueInteger": 0
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6111-4",
+                  "display": "0"
+                }
               },
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-                "valueInteger": 10
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6112-2",
+                  "display": "1"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6113-0",
+                  "display": "2 or more"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6114-8",
+                  "display": "3"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6115-5",
+                  "display": "4"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10137-0",
+                  "display": "5"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10138-8",
+                  "display": "6"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10139-6",
+                  "display": "7"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10140-4",
+                  "display": "8"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10141-2",
+                  "display": "9"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA13942-0",
+                  "display": "10"
+                }
               }
             ]
           },
           {
-            "linkId": "91146-1",
+            "linkId": "108515",
             "code": [
               {
                 "system": "http://loinc.org",
@@ -93,30 +148,92 @@
               }
             ],
             "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
-            "type": "integer",
-            "extension": [
+            "type": "choice",
+            "repeats": false,
+            "answerOption": [
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/minValue",
-                "valueInteger": 0
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6111-4",
+                  "display": "0"
+                }
               },
               {
-                "url": "http://hl7.org/fhir/StructureDefinition/maxValue",
-                "valueInteger": 10
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6112-2",
+                  "display": "1"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6113-0",
+                  "display": "2 or more"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6114-8",
+                  "display": "3"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6115-5",
+                  "display": "4"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10137-0",
+                  "display": "5"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10138-8",
+                  "display": "6"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10139-6",
+                  "display": "7"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10140-4",
+                  "display": "8"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10141-2",
+                  "display": "9"
+                }
+              },
+              {
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA13942-0",
+                  "display": "10"
+                }
               }
             ]
           },
           {
-            "linkId": "91147-9",
-            "code": [
-              {
-                "system": "http://loinc.org",
-                "code": "91147-9",
-                "display": "Mean score [PEG]"
-              }
-            ],
-            "text": "Mean score [PEG]",
-            "type": "decimal",
-            "readOnly": true
+            "linkId": "108516",
+            "text": "Mean score",
+            "type": "decimal"
           }
         ]
       }
@@ -126,7 +243,7 @@
       "resource": {
         "resourceType": "QuestionnaireResponse",
         "id": "qr-peg-3-example",
-        "questionnaire": "https://joshuamandel.com/ktc-questionnaire-starters/Questionnaire/peg-3|1.0.0",
+        "questionnaire": "http://loinc.org/q/91148-7",
         "status": "completed",
         "subject": {
           "reference": "Patient/example",
@@ -138,38 +255,46 @@
         },
         "item": [
           {
-            "linkId": "75893-8",
+            "linkId": "108518",
             "text": "What number best describes your pain on average in the past week?",
             "answer": [
               {
-                "valueInteger": 6
+                "valueDecimal": 6
               }
             ]
           },
           {
-            "linkId": "91145-3",
+            "linkId": "108514",
             "text": "What number best describes how, during the past week, pain has interfered with your enjoyment of life?",
             "answer": [
               {
-                "valueInteger": 7
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA10139-6",
+                  "display": "7"
+                }
               }
             ]
           },
           {
-            "linkId": "91146-1",
+            "linkId": "108515",
             "text": "What number best describes how, during the past week, pain has interfered with your general activity?",
             "answer": [
               {
-                "valueInteger": 5
+                "valueCoding": {
+                  "system": "http://loinc.org",
+                  "code": "LA6115-5",
+                  "display": "4"
+                }
               }
             ]
           },
           {
-            "linkId": "91147-9",
-            "text": "Mean score [PEG]",
+            "linkId": "108516",
+            "text": "Mean score",
             "answer": [
               {
-                "valueDecimal": 6.0
+                "valueDecimal": 5.7
               }
             ]
           }
@@ -208,7 +333,7 @@
         },
         "effectiveDateTime": "2026-06-09T09:30:00-05:00",
         "valueQuantity": {
-          "value": 6.0,
+          "value": 5.7,
           "unit": "{score}",
           "system": "http://unitsofmeasure.org",
           "code": "{score}"

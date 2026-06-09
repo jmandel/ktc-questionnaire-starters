@@ -586,10 +586,12 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
         </div>
       </div>
     </div>
-    <p class="note">Scores are computed in the browser from each answer's <code>ordinalValue</code>
-      (choice items) or numeric value (0–10 scales). PEG-3 reports the <b>mean</b>; the others report a
-      <b>total</b>. These are illustrative resources on <code>https://example.org</code>-style URLs &mdash;
-      add your SDC/US&nbsp;Core profiles, full answer lists, and copyright text for production.</p>
+    <p class="note">These are LOINC's <b>official</b> FHIR Questionnaires (from
+      <a href="https://fhir.loinc.org/Questionnaire/">fhir.loinc.org</a>), rendered as-is &mdash; real
+      LOINC <code>linkId</code>s and answer codes. Scores are computed in the browser from each answer's
+      position in the option list (0…N); PEG reports the <b>mean</b>, the others a <b>total</b>. The
+      generated <span class="mono">QuestionnaireResponse</span> references LOINC's canonical
+      <code>http://loinc.org/q/&lt;panel&gt;</code>. PHQ-9's difficulty item is answered but not summed.</p>
   </div>
 </section>
 
@@ -607,8 +609,8 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
       <div class="pnode">
         <div class="rt">Questionnaire</div>
         <h4>The form definition</h4>
-        <p>Canonical URL, LOINC panel code, item codes, answer options with ordinal scores, version,
-          copyright, and <code>derivedFrom</code> the official LOINC form.</p>
+        <p>LOINC's official form, rendered as-is: canonical <code>http://loinc.org/q/&lt;panel&gt;</code>,
+          panel code, item codes, answer options, and copyright.</p>
       </div>
       <div class="arrow">→</div>
       <div class="pnode">
@@ -632,11 +634,11 @@ footer .disc{margin-top:22px;font-size:.8rem;color:var(--muted);max-width:80ch}
     <div class="sec-head">
       <div class="kicker">Reference</div>
       <h2>Core LOINC codes for the starter library</h2>
-      <p>The LOINC panel code in <code>Questionnaire.code</code> is the real interoperability anchor &mdash;
-        it's what a receiving system matches on, whoever rendered the form. LOINC also publishes official
-        FHIR Questionnaires for these panels at <a href="https://fhir.loinc.org/Questionnaire/">fhir.loinc.org</a>,
-        with the canonical <code>http://loinc.org/q/&lt;panel&gt;</code>. Each resource here keeps its own
-        <code>url</code> but cites that official form via <code>derivedFrom</code>.</p>
+      <p>These starters <b>are</b> LOINC's official FHIR Questionnaires, published at
+        <a href="https://fhir.loinc.org/Questionnaire/">fhir.loinc.org</a> by Regenstrief and redistributed
+        here under the LOINC license. We render them as-is and the example responses reference their
+        canonical <code>http://loinc.org/q/&lt;panel&gt;</code>. The panel code in
+        <code>Questionnaire.code</code> stays the real interoperability anchor.</p>
     </div>
     <div class="tablewrap">
       <table id="codesTable">
@@ -735,55 +737,50 @@ function hl(obj){
 }
 
 /* ---------- scoring ---------- */
-function ordinalOf(item, code){
-  // find answerOption with valueCoding.code === code -> ordinalValue
-  for(const o of (item.answerOption||[])){
-    if(o.valueCoding && o.valueCoding.code === code){
-      const ext = (o.extension||[]).find(e=>e.url.endsWith('ordinalValue'));
-      return ext ? ext.valueDecimal : 0;
-    }
-  }
-  return 0;
+// Items the patient fills in: everything except the (computed) score item.
+function inputItems(inst){
+  return inst.questionnaire.item.filter(it => it.type!=='display' && it.linkId!==inst.scoreLink);
 }
-function answeredItems(inst){
-  return inst.questionnaire.item.filter(it => it.type==='choice' || it.type==='integer' && !it.readOnly && it.linkId!==inst.scoreCode.code);
+function itemByLink(inst, linkId){
+  return inst.questionnaire.item.find(it => it.linkId===linkId);
 }
 function computeScore(inst){
   const st = state[inst.key]||{};
-  let sum=0, n=0;
-  for(const it of answeredItems(inst)){
-    if(!(it.linkId in st)) continue;
-    n++;
-    sum += st[it.linkId].score;
+  let sum=0, nScored=0;
+  for(const lid of inst.scored){
+    if(lid in st){ sum += st[lid].score; nScored++; }
   }
-  const total = inst.scoreType==='decimal' ? Math.round((sum/Math.max(n,1))*10)/10 : sum;
-  const complete = n === answeredItems(inst).length;
-  return {total, n, complete, count: answeredItems(inst).length};
+  const total = inst.aggregate==='mean'
+    ? Math.round((sum/Math.max(nScored,1))*10)/10
+    : sum;
+  const inputs = inputItems(inst);
+  const nAns = inputs.filter(it => it.linkId in st).length;
+  const complete = nAns === inputs.length;
+  return {total, nAns, count: inputs.length, complete, scoredComplete: nScored===inst.scored.length};
 }
 
-/* ---------- build live resources ---------- */
+/* ---------- build live resources (LOINC linkIds + datatypes) ---------- */
 function liveResponse(inst){
   const st = state[inst.key]||{};
   const items=[];
-  for(const it of inst.questionnaire.item){
-    if(it.type==='display') continue;
-    if(it.linkId===inst.scoreCode.code) continue;
+  for(const it of inputItems(inst)){
     const entry = st[it.linkId];
     if(!entry) continue;
     let answer;
     if(it.type==='choice') answer={valueCoding:{system:'http://loinc.org',code:entry.code,display:entry.display}};
-    else answer={valueInteger:entry.score};
+    else if(it.type==='integer') answer={valueInteger:entry.score};
+    else answer={valueDecimal:entry.score};
     items.push({linkId:it.linkId,text:it.text,answer:[answer]});
   }
   const sc=computeScore(inst);
-  if(sc.complete){
-    const sAns = inst.scoreType==='decimal' ? {valueDecimal:sc.total} : {valueInteger:sc.total};
-    items.push({linkId:inst.scoreCode.code,text:inst.scoreCode.display,answer:[sAns]});
+  if(sc.scoredComplete){
+    items.push({linkId:inst.scoreLink, text:(itemByLink(inst,inst.scoreLink)||{}).text||'Total score',
+      answer:[{valueDecimal:sc.total}]});
   }
   return {
     resourceType:'QuestionnaireResponse',
     id:'qr-'+inst.key+'-live',
-    questionnaire: inst.questionnaire.url + '|1.0.0',
+    questionnaire: inst.loincCanonical,
     status: sc.complete?'completed':'in-progress',
     subject:{reference:'Patient/example',display:'Example Patient'},
     authored:'2026-06-09T09:30:00-05:00',
@@ -796,7 +793,7 @@ function liveObservation(inst){
   return {
     resourceType:'Observation',
     id:'obs-'+inst.key+'-live',
-    status: sc.complete?'final':'preliminary',
+    status: sc.scoredComplete?'final':'preliminary',
     category:[{coding:[{system:'http://terminology.hl7.org/CodeSystem/observation-category',code:'survey',display:'Survey'}]}],
     code:{coding:[inst.scoreCode]},
     subject:{reference:'Patient/example',display:'Example Patient'},
@@ -812,56 +809,63 @@ function instById(key){return DATA.instruments.find(i=>i.key===key);}
 function renderForm(inst){
   CURRENT=inst.key;
   if(!state[inst.key]) state[inst.key]={};
-  const q=inst.questionnaire;
+  const scored=new Set(inst.scored);
   const form=document.getElementById('form');
   let html='';
   let qn=0;
-  for(const it of q.item){
+  for(const it of inst.questionnaire.item){
     if(it.type==='display'){html+=`<div class="lead">${it.text}</div>`;continue;}
-    if(it.linkId===inst.scoreCode.code) continue;
+    if(it.linkId===inst.scoreLink) continue;       // score item is computed
     qn++;
     const cur=state[inst.key][it.linkId];
+    const isScored=scored.has(it.linkId);
     html+=`<div class="q"><div class="qt"><span class="ix">${qn}</span>${it.text}</div>`;
-    if(it.type==='choice'){
+    const opts=it.answerOption||[];
+    if(it.type==='choice' && opts.length>6){
+      // long ordinal list (0–10) -> compact scale of buttons; index == ordinal
+      html+='<div class="scale">';
+      opts.forEach((o,i)=>{
+        const sel=cur&&cur.score===i?'sel':'';
+        html+=`<button class="${sel}" data-link="${it.linkId}" data-idx="${i}" data-code="${o.valueCoding.code}" data-disp="${esc(o.valueCoding.display)}" title="${esc(o.valueCoding.display)}">${i}</button>`;
+      });
+      html+='<div class="ends"><span>0</span><span>10</span></div></div>';
+    } else if(it.type==='choice'){
       html+='<div class="opts">';
-      for(const o of it.answerOption){
-        const code=o.valueCoding.code, disp=o.valueCoding.display;
-        const sc=(o.extension||[]).find(e=>e.url.endsWith('ordinalValue'))?.valueDecimal ?? 0;
-        const sel=cur&&cur.code===code?'sel':'';
-        html+=`<label class="opt ${sel}" data-link="${it.linkId}" data-code="${code}" data-disp="${disp}" data-score="${sc}">
+      opts.forEach((o,i)=>{
+        const sel=cur&&cur.code===o.valueCoding.code?'sel':'';
+        const badge=isScored?`<span class="osc">+${i}</span>`:'';
+        html+=`<label class="opt ${sel}" data-link="${it.linkId}" data-idx="${i}" data-code="${o.valueCoding.code}" data-disp="${esc(o.valueCoding.display)}">
           <input type="radio" name="${inst.key}-${it.linkId}" ${sel?'checked':''}/>
-          <span>${disp}</span><span class="osc">+${sc}</span></label>`;
-      }
+          <span>${o.valueCoding.display}</span>${badge}</label>`;
+      });
       html+='</div>';
-    } else { // integer 0-10 scale
+    } else { // numeric (decimal/integer) 0–10 scale
       html+='<div class="scale">';
       for(let v=0;v<=10;v++){
         const sel=cur&&cur.score===v?'sel':'';
-        html+=`<button class="${sel}" data-link="${it.linkId}" data-score="${v}">${v}</button>`;
+        html+=`<button class="${sel}" data-link="${it.linkId}" data-num="${v}">${v}</button>`;
       }
-      html+='<div class="ends"><span>None</span><span>Worst</span></div></div>';
+      html+='<div class="ends"><span>0</span><span>10</span></div></div>';
     }
     html+='</div>';
   }
   form.innerHTML=html;
 
-  form.querySelectorAll('.opt').forEach(el=>{
-    el.addEventListener('click',()=>{
-      state[inst.key][el.dataset.link]={code:el.dataset.code,display:el.dataset.disp,score:+el.dataset.score};
-      refresh(inst);
-    });
-  });
-  form.querySelectorAll('.scale button').forEach(el=>{
-    el.addEventListener('click',()=>{
-      state[inst.key][el.dataset.link]={score:+el.dataset.score};
-      refresh(inst);
-    });
-  });
+  form.querySelectorAll('.opt').forEach(el=>el.addEventListener('click',()=>{
+    state[inst.key][el.dataset.link]={code:el.dataset.code,display:el.dataset.disp,score:+el.dataset.idx};
+    refresh(inst);
+  }));
+  form.querySelectorAll('.scale button').forEach(el=>el.addEventListener('click',()=>{
+    if(el.dataset.code!==undefined)
+      state[inst.key][el.dataset.link]={code:el.dataset.code,display:el.dataset.disp,score:+el.dataset.idx};
+    else
+      state[inst.key][el.dataset.link]={score:+el.dataset.num};
+    refresh(inst);
+  }));
   refresh(inst);
 }
 
 function refresh(inst){
-  // update selected styles without full re-render
   const form=document.getElementById('form');
   const st=state[inst.key]||{};
   form.querySelectorAll('.opt').forEach(el=>{
@@ -870,30 +874,30 @@ function refresh(inst){
     const input=el.querySelector('input'); if(input) input.checked=!!sel;
   });
   form.querySelectorAll('.scale button').forEach(el=>{
-    const sel = st[el.dataset.link] && st[el.dataset.link].score===+el.dataset.score;
+    const v = el.dataset.code!==undefined ? +el.dataset.idx : +el.dataset.num;
+    const sel = st[el.dataset.link] && st[el.dataset.link].score===v;
     el.classList.toggle('sel',!!sel);
   });
 
   const sc=computeScore(inst);
-  document.getElementById('scoreNum').textContent = sc.n===0 ? '–' : sc.total;
+  document.getElementById('scoreNum').textContent = sc.nAns===0 ? '–' : sc.total;
   document.getElementById('scoreLbl').textContent =
-    (inst.scoreType==='decimal'?'Mean score':'Total score') + ` · ${sc.n}/${sc.count} answered`;
+    (inst.aggregate==='mean'?'Mean score':'Total score') + ` · ${sc.nAns}/${sc.count} answered`;
   document.getElementById('scoreCode').textContent = `LOINC ${inst.scoreCode.code} · ${inst.scoreCode.display}`;
 
-  // safety flag (PHQ-9 item 9)
+  // safety flag (e.g. PHQ-9 item 9)
   const flag=document.getElementById('flag');
   let showFlag=false;
-  if(inst.key==='phq-9'){
-    const item9=st['44260-8'];
-    if(item9 && item9.score>0){showFlag=true; flag.textContent='PHQ-9 item 9 is positive — trigger your local suicide-risk follow-up workflow now, regardless of total score.';}
-  }
-  if(!showFlag && inst.flagNote && sc.complete){
-    // show informational flag for some when complete
+  if(inst.safetyLink && st[inst.safetyLink] && st[inst.safetyLink].score>0){
+    showFlag=true;
+    flag.textContent = inst.flagNote || 'This response should trigger a local follow-up workflow.';
   }
   flag.classList.toggle('show',showFlag);
 
   renderRes(inst);
 }
+
+function esc(s){return (s||'').replace(/"/g,'&quot;');}
 
 function currentResource(inst){
   if(CURRENT_RES==='response') return liveResponse(inst);
@@ -929,26 +933,18 @@ function renderInstTabs(){
 
 function renderCards(){
   const wrap=document.getElementById('cards');
-  const meta={
-    'phq-9':{why:'A familiar depression screen with shared answer choices, a total score, and a safety question built in. Ask it when a fresh screen is due — the chart won\'t tell you how the patient feels this week.',lic:'No permission required'},
-    'gad-7':{why:'Anxiety screen that scores the same way as PHQ-9, so the same code handles both. How someone feels right now isn\'t something the chart can hand over.',lic:'No permission required'},
-    'audit-c':{why:'A three-question alcohol screen. Social history is often missing or out of date; this gets a fresh, scored answer when one is needed.',lic:'Public domain (WHO)'},
-    'peg-3':{why:'The clearest case for a questionnaire: the chart may say the patient has chronic pain, but not how much it got in the way of their life this week.',lic:'Public domain'},
-    'esas-r':{why:'Rates nine symptoms at once for cancer, palliative, and serious-illness care. It\'s how the patient is doing today, not anything in the demographics.',lic:'Public domain w/ acknowledgment'},
-  };
   wrap.innerHTML='';
   DATA.instruments.forEach(inst=>{
-    const m=meta[inst.key]||{why:'',lic:''};
-    const pubClass = m.lic.includes('Public')?'pub':'terms';
+    const pubClass = (inst.lic||'').includes('Public')?'pub':'terms';
     const c=document.createElement('div');
     c.className='icard';
     c.innerHTML=`
       <div class="top"><span class="abbr">${inst.name}</span>
         <a class="loinc" href="${inst.loincTerm}" target="_blank" rel="noopener">panel ${inst.panel.code} ↗</a></div>
       <div class="full">${inst.title}</div>
-      <div class="why">${m.why}</div>
+      <div class="why">${inst.why||''}</div>
       <div class="foot">
-        <span class="pill ${pubClass}">${m.lic}</span>
+        <span class="pill ${pubClass}">${inst.lic||''}</span>
         <a class="try" href="#explore" data-go="${inst.key}">Try it →</a>
       </div>`;
     wrap.appendChild(c);

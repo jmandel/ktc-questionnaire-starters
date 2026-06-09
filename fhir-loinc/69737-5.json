@@ -1,0 +1,286 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "69737-5",
+  "meta": {
+    "versionId": "8",
+    "lastUpdated": "2026-02-24T21:52:39.978+00:00",
+    "source": "#QUYLcH7IGqH7fqfS"
+  },
+  "url": "http://loinc.org/q/69737-5",
+  "name": "Generalized_anxiety_disorder_item",
+  "title": "Generalized anxiety disorder 7 item",
+  "status": "draft",
+  "subjectType": [ "Patient" ],
+  "publisher": "Regenstrief Institute, Inc.",
+  "contact": [ {
+    "name": "Regenstrief Institute, Inc.",
+    "telecom": [ {
+      "system": "url",
+      "value": "http://loinc.org"
+    } ]
+  } ],
+  "copyright": "This material contains content from LOINC (http://loinc.org). LOINC is copyright © Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee. All rights reserved. LOINC is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc.\r\nCopyright © Pfizer Inc. All rights reserved. Developed by Drs. Robert L. Spitzer, Janet B.W. Williams, Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. No permission required to reproduce, translate, display or distribute.",
+  "code": [ {
+    "system": "http://loinc.org",
+    "code": "69737-5",
+    "display": "Generalized anxiety disorder 7 item"
+  } ],
+  "item": [ {
+    "linkId": "57541",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69725-0",
+      "display": "Feeling nervous, anxious or on edge"
+    } ],
+    "prefix": "GAD7_01",
+    "text": "Feeling nervous, anxious or on edge",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57542",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "68509-9",
+      "display": "Over the past 2 weeks have you not been able to stop or control worrying"
+    } ],
+    "prefix": "GAD7_02",
+    "text": "Over the past 2 weeks have you not been able to stop or control worrying",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57543",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69733-4",
+      "display": "Worrying too much about different things"
+    } ],
+    "prefix": "GAD7_03",
+    "text": "Worrying too much about different things",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57544",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69734-2",
+      "display": "Trouble relaxing"
+    } ],
+    "prefix": "GAD7_04",
+    "text": "Trouble relaxing",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57545",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69735-9",
+      "display": "Being so restless that it is hard to sit still"
+    } ],
+    "prefix": "GAD7_05",
+    "text": "Being so restless that it is hard to sit still",
+    "type": "choice",
+    "enableBehavior": "any",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57546",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69689-8",
+      "display": "Becoming easily annoyed or irritable."
+    } ],
+    "prefix": "GAD7_06",
+    "text": "Becoming easily annoyed or irritable.",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "57547",
+    "code": [ {
+      "system": "http://loinc.org",
+      "code": "69736-7",
+      "display": "Feeling afraid as if something awful might happen"
+    } ],
+    "prefix": "GAD7_07",
+    "text": "Feeling afraid as if something awful might happen",
+    "type": "choice",
+    "repeats": false,
+    "answerOption": [ {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6568-5",
+        "display": "Not at all"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6569-3",
+        "display": "Several days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6570-1",
+        "display": "More than half the days"
+      }
+    }, {
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "LA6571-9",
+        "display": "Nearly every day"
+      }
+    } ]
+  }, {
+    "linkId": "58628",
+    "text": "Generalized anxiety disorder 7 item total score",
+    "type": "decimal"
+  } ]
+}
