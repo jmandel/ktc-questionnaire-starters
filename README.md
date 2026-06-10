@@ -51,14 +51,17 @@ python3 generate.py && python3 verify_loinc.py
 ## What's in here
 
 ```
-index.html                 # the single-page site (live, fillable demo)
-data.json                  # bundle the site loads (generated)
+index.html                 # HTML shell; Bun bundles src/main.tsx from here
+src/                       # the site: React + Zustand (TypeScript), styles.css
+view.html                  # standalone FHIR artifact viewer (plain HTML/JS)
+dev.ts                     # dev server: bundled app + static view.html / fhir/*
+data.json                  # generated bundle, imported into the app at build time
 generate.py                # generates responses/observations/bundles + data.json
 verify_loinc.py            # validates codes/answers/scores against a LOINC distribution
 fhir-loinc/
   <panel>.json             # LOINC's official Questionnaires, fetched verbatim from fhir.loinc.org
 fhir/
-  <id>.questionnaire.json  # the official LOINC Questionnaire (redistributed as-is)
+  <id>.questionnaire.json  # the official LOINC Questionnaire + SDC ordinalValue weights
   <id>.response.json       # example QuestionnaireResponse (LOINC linkIds, real datatypes)
   <id>.observation.json    # extracted, LOINC-coded score Observation (category=survey)
   <id>.bundle.json         # all three as a collection Bundle
@@ -66,27 +69,34 @@ fhir/
 
 The Questionnaires here are **LOINC's official FHIR Questionnaires**, published by Regenstrief at
 [`fhir.loinc.org`](https://fhir.loinc.org/Questionnaire/) and redistributed under the
-[LOINC license](http://loinc.org/license) (the notice travels in `Questionnaire.copyright`). We render
-them as-is — real numeric `linkId`s, real answer codes — and the example responses reference their
-canonical `http://loinc.org/q/<panel>`.
+[LOINC license](http://loinc.org/license) (the notice travels in `Questionnaire.copyright`; Regenstrief
+publishes them with `status: draft`, preserved as published). We keep the real numeric `linkId`s and
+answer codes, and add one thing: **SDC `ordinalValue` extensions** (`itemWeight` in R5) on the scored
+answer options, so the scoring convention is machine-readable in the form itself. The example responses
+reference their canonical `http://loinc.org/q/<panel>`.
 
 ## The FHIR pattern
 
 1. **`Questionnaire`** — LOINC's official form: canonical `http://loinc.org/q/<panel>`, panel code,
    item codes, answer options, `copyright`.
 2. **`QuestionnaireResponse`** — answers by LOINC `linkId` with the right datatype (`valueCoding` for
-   choice items, `valueInteger`/`valueDecimal` for numeric), `source`/author, `authored` timestamp,
-   referencing the LOINC canonical. The raw provenance record.
-3. **`Observation`** — `category = survey`, LOINC score code, `valueQuantity` in `{score}`,
-   `derivedFrom` the response. The searchable, trendable result.
+   choice items, `valueInteger`/`valueDecimal` for numeric), **including the form's own score item**
+   (LOINC models the score as an item, so an app filling the form fills it too), `source`/author,
+   `authored` timestamp, referencing the LOINC canonical. The raw provenance record.
+3. **`Observation`** — what the EHR extracts (re-checking the math) from the response:
+   `category = survey`, LOINC score code, `valueQuantity` in `{score}`, `derivedFrom` the response.
+   The searchable, trendable result.
 
 ## Scoring
 
 LOINC orders each item's answers from least to most, so the **option index is the ordinal** (the stored
-`Score` field in LOINC's answer file is unreliable for several of these panels). The total is a **sum**,
-except **PEG** which is a **mean**. PHQ-9's functional-difficulty item and each form's score item are not
-summed. Scoring lives in `generate.py` (for the example responses) and in the page's JS (for the live
-demo); `verify_loinc.py` re-derives every score and checks it against the response.
+`Score` field in LOINC's answer file is unreliable for several of these panels). `generate.py` makes
+that convention explicit in-band by stamping each scored answer option with the SDC **`ordinalValue`**
+extension (`http://hl7.org/fhir/StructureDefinition/ordinalValue`), and both scorers read the weights
+from there. Items that are answered but not summed — PHQ-9's functional-difficulty item, each form's
+score item — carry no weights. The total is a **sum**, except **PEG** which is a **mean**. Scoring lives
+in `generate.py` (for the example responses) and in the page's JS (for the live demo);
+`verify_loinc.py` re-derives every score and checks it against the response.
 
 ## Regenerating & verifying
 
@@ -95,17 +105,25 @@ python3 generate.py        # rewrite fhir/*.json and data.json
 python3 verify_loinc.py    # check every code/display/answer against ~/work/tx/Loinc_2.82
 ```
 
+(`data.json` is imported at build time, so rebuild the site after regenerating.)
+
 `verify_loinc.py` confirms all panel/item/score codes are **ACTIVE** in LOINC and that every choice
 answer's code + display text and the AUDIT-C answer lists (`LL2179-1` / `LL2180-9` / `LL2181-7`) match
 the distribution. All 120 codes/answers currently pass.
 
 ## Run locally
 
+The site is React + Zustand, bundled with [Bun](https://bun.sh):
+
 ```bash
-python3 -m http.server 8000   # then open http://localhost:8000
+bun install
+bun run dev          # http://localhost:8000 — bundled app + view.html + fhir/* (HMR)
+bun index.html       # alternative: Bun's built-in HTML dev server (app only)
+bun run build        # production build -> dist/ (app, view.html, fhir/)
 ```
 
-(The page fetches `data.json`, so serve over HTTP rather than opening the file directly.)
+Deploys to GitHub Pages via `.github/workflows/pages.yml` (build → upload `dist/`); the
+repo's Pages settings must use **Source: GitHub Actions**.
 
 ## Caveats
 

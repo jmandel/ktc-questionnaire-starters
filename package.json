@@ -1,0 +1,19 @@
+{
+  "name": "ktc-questionnaire-starters",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun dev.ts",
+    "build": "bun build ./index.html --outdir=dist --minify && cp view.html dist/ && cp -r fhir dist/fhir && touch dist/.nojekyll"
+  },
+  "dependencies": {
+    "react": "^19",
+    "react-dom": "^19",
+    "zustand": "^5"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
+  }
+}
