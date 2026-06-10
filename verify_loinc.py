@@ -7,7 +7,8 @@ the local LOINC 2.82 distribution:
   * every answer-option display matches LOINC's AnswerList text,
   * each example response references LOINC's canonical url and only uses linkIds that
     exist in the official Questionnaire,
-  * the recomputed score (option index; sum or mean) matches the response's score item.
+  * every scored choice item carries SDC ordinalValue weights on all its answer options,
+  * the recomputed score (ordinalValue weights; sum or mean) matches the response's score item.
 
 Run:  python3 verify_loinc.py
 """
@@ -48,7 +49,7 @@ def answer_ok(code, display):
 
 
 for panel, cfg in G.CONFIG.items():
-    q = G.load_q(panel)
+    q = G.decorate(G.load_q(panel), cfg)
     print(f"\n=== {cfg['name']}  panel {panel}  url {q['url']} ===")
     code_active(panel, "panel")
     code_active(cfg["score_code"]["code"], "score")
@@ -60,6 +61,15 @@ for panel, cfg in G.CONFIG.items():
         for o in it.get("answerOption", []):
             vc = o["valueCoding"]
             answer_ok(vc["code"], vc["display"])
+
+    # every scored choice item must carry a weight on every answer option
+    for lid in cfg["scored"]:
+        it = by[lid]
+        if it["type"] != "choice":
+            continue
+        for i, o in enumerate(it.get("answerOption", [])):
+            if not any(e.get("url") == G.ORDINAL_EXT for e in o.get("extension", [])):
+                problems.append(f"[{cfg['key']}] item {lid} option {i} missing ordinalValue")
 
     # response integrity
     r = G.build_response(cfg, q)

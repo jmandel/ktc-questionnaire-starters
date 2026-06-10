@@ -53,28 +53,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -97,28 +121,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -141,28 +189,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -185,28 +257,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -230,28 +326,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -274,28 +394,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },
@@ -318,28 +462,52 @@
             "system": "http://loinc.org",
             "code": "LA6568-5",
             "display": "Not at all"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 0
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6569-3",
             "display": "Several days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 1
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6570-1",
             "display": "More than half the days"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 2
+            }
+          ]
         },
         {
           "valueCoding": {
             "system": "http://loinc.org",
             "code": "LA6571-9",
             "display": "Nearly every day"
-          }
+          },
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+              "valueDecimal": 3
+            }
+          ]
         }
       ]
     },

@@ -3,17 +3,20 @@
 Build the example library for the "Kill the Clipboard" starter questionnaire set.
 
 We redistribute LOINC's *official* FHIR Questionnaires (fetched from
-https://fhir.loinc.org/Questionnaire/<panel> into fhir-loinc/<panel>.json) verbatim,
-then generate, for each one, an example QuestionnaireResponse and an extracted score
-Observation that reference LOINC's canonical url (http://loinc.org/q/<panel>) and use
-LOINC's real linkIds — so everything is consistent with the published form.
+https://fhir.loinc.org/Questionnaire/<panel> into fhir-loinc/<panel>.json), decorated
+with SDC ordinalValue extensions on the scored answer options, then generate, for each
+one, an example QuestionnaireResponse and an extracted score Observation that reference
+LOINC's canonical url (http://loinc.org/q/<panel>) and use LOINC's real linkIds — so
+everything is consistent with the published form.
 
-Scoring uses the answerOption *index* as the ordinal (LOINC orders options 0..N; its
-stored Score field is unreliable for several of these panels). PHQ-9's functional-
-difficulty item and the score item itself are not summed.
+LOINC orders each item's options least->most but carries no machine-readable weight
+(its stored Score field is unreliable for several of these panels), so the scoring
+convention — option index == ordinal — is made explicit in-band via the ordinalValue
+extension (itemWeight in R5). Items that are answered but not summed (PHQ-9's
+functional-difficulty item, the score item itself) carry no weights.
 
 Outputs (re-run after editing):  python3 generate.py
-  fhir/<key>.questionnaire.json   verbatim official LOINC Questionnaire (redistributed)
+  fhir/<key>.questionnaire.json   official LOINC Questionnaire + SDC ordinalValue weights
   fhir/<key>.response.json        example QuestionnaireResponse (LOINC linkIds)
   fhir/<key>.observation.json     extracted score Observation
   fhir/<key>.bundle.json          all three as a collection Bundle
@@ -30,6 +33,7 @@ LOINC = "http://loinc.org"
 UCUM = "http://unitsofmeasure.org"
 LOINC_Q = "http://loinc.org/q/"                # LOINC canonical url pattern
 LOINC_FHIR = "https://fhir.loinc.org/Questionnaire/"
+ORDINAL_EXT = "http://hl7.org/fhir/StructureDefinition/ordinalValue"
 AUTHORED = "2026-06-09T09:30:00-05:00"
 
 
@@ -136,6 +140,30 @@ def items_by_link(q):
     return {it["linkId"]: it for it in q["item"]}
 
 
+def decorate(q, cfg):
+    """Add SDC ordinalValue weights to the answer options of scored choice items.
+
+    Unscored items (PHQ-9's functional-difficulty item) get none — the absence of a
+    weight is what says "answered but not summed".
+    """
+    scored = set(cfg["scored"])
+    for it in q["item"]:
+        if it["linkId"] in scored and it["type"] == "choice":
+            for i, opt in enumerate(it.get("answerOption", [])):
+                exts = [e for e in opt.get("extension", []) if e.get("url") != ORDINAL_EXT]
+                exts.append({"url": ORDINAL_EXT, "valueDecimal": i})
+                opt["extension"] = exts
+    return q
+
+
+def ordinal(item, idx):
+    """Weight of answerOption[idx]: the ordinalValue extension, else the index."""
+    for e in item["answerOption"][idx].get("extension", []):
+        if e.get("url") == ORDINAL_EXT:
+            return e["valueDecimal"]
+    return idx
+
+
 def chosen_answer(item, val):
     """Return (answer_object, ordinal_value) for a sample value on an item."""
     if item["type"] == "choice":
@@ -152,7 +180,8 @@ def compute_score(cfg, q):
     vals = []
     for lid in cfg["scored"]:
         v = cfg["sample"][lid]
-        vals.append(v)  # index for choice == ordinal; numeric value otherwise
+        it = by[lid]
+        vals.append(ordinal(it, v) if it["type"] == "choice" else v)
     total = sum(vals)
     if cfg["aggregate"] == "mean":
         return round(total / len(vals), 1)
@@ -230,7 +259,7 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     site = {"instruments": []}
     for panel, cfg in CONFIG.items():
-        q = load_q(panel)
+        q = decorate(load_q(panel), cfg)
         r = build_response(cfg, q)
         o = build_observation(cfg, q)
         b = build_bundle(cfg, q, r, o)

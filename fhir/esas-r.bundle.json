@@ -60,77 +60,143 @@
                   "system": "http://loinc.org",
                   "code": "LA26951-6",
                   "display": "0:\"No pain\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA26952-4",
                   "display": "10: \"Worst pain imaginable\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -153,77 +219,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37058-7",
                   "display": "\"No tiredness\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37059-5",
                   "display": "\"Worst possible tiredness\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -246,77 +378,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37060-3",
                   "display": "\"No drowsiness\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37061-1",
                   "display": "\"Worst possible drowsiness\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -339,77 +537,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37062-9",
                   "display": "\"No nausea\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37063-7",
                   "display": "\"Worst possible nausea\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -432,77 +696,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37064-5",
                   "display": "\"No lack of appetite\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37065-2",
                   "display": "\"Worst possible lack of appetite\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -525,77 +855,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37066-0",
                   "display": "\"No shortness of breath\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37067-8",
                   "display": "\"Worst possible shortness of breath\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -618,77 +1014,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37068-6",
                   "display": "\"No depression\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37069-4",
                   "display": "\"Worst possible depression\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -711,77 +1173,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37070-2",
                   "display": "\"No anxiety\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37071-0",
                   "display": "\"Worst possible anxiety\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
@@ -804,77 +1332,143 @@
                   "system": "http://loinc.org",
                   "code": "LA37072-8",
                   "display": "\"Best wellbeing\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 0
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6112-2",
                   "display": "1"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 1
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA34475-6",
                   "display": "2"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 2
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6114-8",
                   "display": "3"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 3
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA6115-5",
                   "display": "4"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 4
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10137-0",
                   "display": "5"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 5
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10138-8",
                   "display": "6"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 6
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10139-6",
                   "display": "7"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 7
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10140-4",
                   "display": "8"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 8
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA10141-2",
                   "display": "9"
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 9
+                  }
+                ]
               },
               {
                 "valueCoding": {
                   "system": "http://loinc.org",
                   "code": "LA37073-6",
                   "display": "\"Worst possible wellbeing\""
-                }
+                },
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/ordinalValue",
+                    "valueDecimal": 10
+                  }
+                ]
               }
             ]
           },
